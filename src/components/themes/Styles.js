@@ -13,8 +13,8 @@ const BaseStyle = {
   flexBetween: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 6,
-  }
+    padding: 6,
+  },
 }
 
 export default StyleSheet.create({

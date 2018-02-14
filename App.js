@@ -7,7 +7,7 @@ import Menu from "./src/nav/Menu";
 
 const parseMenu = () => {
   const stack = Menu, drawer = {};
-  let route, options;
+  let route, options, main;
   for (let routeName in Menu) {
     route = Menu[routeName];
     options = route.navigationOptions;
@@ -18,15 +18,20 @@ const parseMenu = () => {
       drawer[routeName] = route;
       delete route.userDrawer;
     }
+    if (!main && route.main) {
+      main = routeName;
+      delete route.main;
+    }
   }
-  return {stack, drawer};
+  return {stack, drawer, main};
 }
 
-const {stack, drawer} = parseMenu(Menu);
+const {stack, drawer, main} = parseMenu(Menu);
 
 const Stack = StackNavigator(
   stack,
   {
+    initialRouteName: main,
     navigationOptions: ({navigation}) => {
       return {
         headerTitleStyle: NavStyle.titleStyle,

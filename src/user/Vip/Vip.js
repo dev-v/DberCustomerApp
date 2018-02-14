@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import Styles from "../../components/themes/Styles";
-import Card from "../../components/Card/Card";
+import Card from "../../components/Layout/Card";
 import ShopCard from "./ShopCard";
 import GlobalCard from "./GlobalCard";
 

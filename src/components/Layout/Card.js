@@ -44,8 +44,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   body: {
-    paddingVertical: 6,
-    paddingHorizontal: 6,
+    padding: 6,
   },
   footer: {
     paddingVertical: 6,

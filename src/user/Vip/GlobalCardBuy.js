@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList, Text, View} from 'react-native';
-import Card from "../../components/Card/Card";
+import Card from "../../components/Layout/Card";
 import Button from "../../components/Button";
 import Styles, {BaseStyle, TextStyle} from "../../components/themes/Styles";
 import Hr from "../../components/Hr";

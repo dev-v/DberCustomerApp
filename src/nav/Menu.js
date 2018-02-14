@@ -56,6 +56,7 @@ export default {
     userDrawer: {},
   },
   Holiday: {
+    main: true,
     screen: Holiday,
     navigationOptions: {
       title: '年假',

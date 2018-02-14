@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import Instance from "./Instance";
 import {TextStyle} from "../themes/Styles";
 import Button from "../Button";
-import Card from "../Card/Card";
+import Card from "../Layout/Card";
 
 let instanceObj;
 
