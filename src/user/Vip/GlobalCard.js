@@ -1,9 +1,9 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import Modals from "../../components/Modal/Modals";
 import {TextStyle} from "../../components/themes/Styles";
-import IconLabel from "../../components/Icon/IconLabel";
+import IconButton from "../../components/Icon/IconButton";
 import {Icons} from "../../components/Icon/Icon";
 
 const cardRule = (<View>
@@ -19,18 +19,15 @@ const cardRule = (<View>
 class GlobalCard extends React.PureComponent {
   render() {
     return (<View style={{flexDirection: 'row'}}>
-        {Modals.getInstance()}
-        <TouchableOpacity onPress={() => {
-          Modals.alert('全城通卡使用说明', cardRule);
-        }}>
-          <IconLabel name='file-text' size={IconLabel.size.small} source={Icons.Feather} text='说明'/>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {
-          this.props.navigation.navigate('GlobalCardBuy');
-        }}>
-          <IconLabel name='shopping-cart' size={IconLabel.size.small} source={Icons.Feather} text='购买'/>
-        </TouchableOpacity>
-      </View>
+          {Modals.getInstance()}
+          <IconButton name='info' source={Icons.Feather} text={'说明'} onPress={() => {
+            Modals.alert('全城通卡使用说明', cardRule);
+          }}/>
+          <IconButton name='shopping-cart' size={IconButton.size.small} source={Icons.Feather} text='购买'
+                      onPress={() => {
+                        this.props.navigation.navigate('GlobalCardBuy');
+                      }}/>
+        </View>
     );
   }
 }

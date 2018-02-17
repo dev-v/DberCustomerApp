@@ -11,6 +11,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 @implementation AppDelegate
 
@@ -31,6 +32,12 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+
+  /**
+   * 高德key map-key
+  [AMapServices sharedServices].apiKey = @"你的高德 Key";
+  */
+
   return YES;
 }
 

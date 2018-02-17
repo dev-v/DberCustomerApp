@@ -16,11 +16,11 @@ class GlobalCardBuy extends React.PureComponent {
     return <View>
       <Text style={TextStyle.subTitle}>{name}</Text>
       <View style={Styles.flexBetween}>
-        <Text>可使用天数</Text>
+        <Text style={TextStyle.base}>可使用天数</Text>
         <Text>{days}</Text>
       </View>
       <View style={Styles.flexBetween}>
-        <Text>价格（￥）</Text>
+        <Text style={TextStyle.base}>价格（￥）</Text>
         <Text>{price}</Text>
       </View>
       <Button>购买</Button>

@@ -3,15 +3,25 @@ import {Text, View} from 'react-native';
 import {BaseStyle} from "./themes/Styles";
 
 export default class Hr extends React.PureComponent {
-  render() {
-    let {text, lineStyle, textStyle, style} = this.props;
+
+  componentWillMount() {
+    let {lineStyle, textStyle, style, text} = this.props;
     style = {...styles.style, ...style};
     lineStyle = {...styles.lineStyle, ...lineStyle};
-    textStyle = {...styles.textStyle, ...textStyle};
-    const textTop = lineStyle.paddingVertical * 2 - textStyle.fontSize / 2 - 3;
+    this.style = {style, lineStyle};
+    if (text) {
+      textStyle = {...styles.textStyle, ...textStyle};
+      const textTop = -textStyle.fontSize / 2 - 2;
+      this.style.textStyle = {...textStyle, top: textTop};
+    }
+  }
+
+  render() {
+    const {text} = this.props;
+    const {style, lineStyle, textStyle} = this.style;
     return <View style={style}>
       <View style={lineStyle}/>
-      {text && <Text style={{...textStyle, top: textTop}}>{text}</Text>}
+      {text && <View><Text style={textStyle}>{text}</Text></View>}
       <View style={lineStyle}/>
     </View>
   }
@@ -20,14 +30,15 @@ export default class Hr extends React.PureComponent {
 const styles = {
   style: {
     flexDirection: 'row',
-    paddingVertical: 16,
+    paddingVertical: 8,
   },
   lineStyle: {
-    flex: 1, borderColor: BaseStyle.borderColor, borderBottomWidth: 0.7, paddingVertical: 8,
+    flex: 1, borderColor: BaseStyle.borderColor, borderBottomWidth: 0.7, height: 0,
   },
   textStyle: {
-    position: 'relative', paddingHorizontal: 20,
+    position: 'relative',
     fontSize: 16,
+    paddingHorizontal: 20,
     color: '#889',
   }
 };

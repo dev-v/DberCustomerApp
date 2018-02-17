@@ -1,9 +1,11 @@
 import React from 'react';
 import {DrawerNavigator, StackNavigator} from 'react-navigation';
+import './src/util/Config';
 import IconButton from './src/components/Icon/IconButton';
 import DrawerContent from './src/nav/DrawerContent';
 import {NavStyle} from "./src/components/themes/Styles";
 import Menu from "./src/nav/Menu";
+
 
 const parseMenu = () => {
   const stack = Menu, drawer = {};
@@ -36,7 +38,7 @@ const Stack = StackNavigator(
       return {
         headerTitleStyle: NavStyle.titleStyle,
         headerStyle: NavStyle.headerStyle,
-        headerRight: <IconButton name='ios-contact' onPress={() => {
+        headerRight: <IconButton name='ios-contact' size={IconButton.size.large} onPress={() => {
           navigation.navigate('DrawerOpen');
         }}/>
       }

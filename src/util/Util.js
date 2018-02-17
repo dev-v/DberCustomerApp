@@ -1,0 +1,56 @@
+import moment from 'moment';
+import {Platform} from 'react-native';
+
+class Time {
+  static format_date = 'YYYY-MM-DD'
+
+  static today(hour = 23, minute = 59, second = 59) {
+    return moment().hour(hour).minute(minute).second(second);
+  }
+
+  static tomorrow(hour, minute, second) {
+    return Time.today(hour, minute, second).add(1, 'd');
+  }
+
+  static formatDate(time, format = this.format_date) {
+    return typeof time == 'string' ? time : time.format(format);
+  }
+}
+
+class Util {
+
+  static isBlank = val => (val == 0 && typeof val == 'string') || (!val && val != 0);
+
+  static isIos = Platform.OS == 'ios';
+
+  static isSame = (s, t) => {
+    if (s == t) {
+      return true;
+    }
+    if (s == undefined || t == undefined) {
+      return false;
+    }
+    if (typeof s == 'object') {
+      if (Array.isArray(s) && (s.length != t.length)) {
+        return false;
+      } else if (Object.keys(s).length != Object.keys(t).length) {
+        return false;
+      }
+
+      for (let k in s) {
+        if (s[k] != t[k]) {
+          return false;
+        }
+      }
+      return true;
+    }
+    return false;
+  }
+
+  static toStr(obj) {
+    return this.isBlank(obj) ? obj : obj.toString();
+  }
+}
+
+
+export {Time, Util};

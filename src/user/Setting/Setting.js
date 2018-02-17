@@ -1,10 +1,12 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Avatar from 'react-native-interactive-avatar';
-import IconLabel from "../../components/Icon/IconLabel";
+import IconButton from "../../components/Icon/IconButton";
 import CheckLabel from "../../components/Icon/CheckLabel";
 import Styles, {TextStyle} from "../../components/themes/Styles";
+import {Icons} from "../../components/Icon/Icon";
 
+const size=IconButton.size.normal;
 export default class Setting extends React.PureComponent {
   render() {
     return (<View style={Styles.container}>
@@ -14,15 +16,15 @@ export default class Setting extends React.PureComponent {
         <Text style={TextStyle.title}>陈先生</Text>
       </View>
       <View style={styles.row}>
-        <IconLabel name='perm-identity' text='头像认证' source='MaterialIcons'/>
+        <IconButton size={size} name='perm-identity' text='头像认证' source='MaterialIcons'/>
         <CheckLabel checked={false} text='未认证'/>
       </View>
       <View style={styles.row}>
-        <IconLabel name='timer-sand' source='MaterialCommunityIcons' text='运动积分'/>
+        <IconButton size={size} name='timer-sand' source='MaterialCommunityIcons' text='运动积分'/>
         <CheckLabel text='10'/>
       </View>
       <View style={styles.row}>
-        <IconLabel name='badge' text='元素勋章'/>
+        <IconButton size={size} name='badge' source={Icons.SimpleLineIcons} text='元素勋章'/>
         <CheckLabel text='氢'/>
       </View>
     </View>);

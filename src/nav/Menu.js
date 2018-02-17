@@ -1,17 +1,23 @@
+import React from 'react';
 import Shop from "../shop/Shop";
 import AccountBind from "../user/AccountBind";
 import Deposit from "../user/Deposit";
 import Upgrade from "../user/Upgrade";
 import Bill from "../user/Bill";
-import Holiday from "../user/Holiday";
+import Holiday from "../user/Holiday/Holiday";
 import BookingSite from "../user/BookingSite";
 import Setting from "../user/Setting/Setting";
 import Vip from "../user/Vip/Vip";
 import GlobalCardBuy from "../user/Vip/GlobalCardBuy";
+import IconButton from "../components/Icon/IconButton";
 
 export default {
   Shop: {
     screen: Shop,
+    navigationOptions: {
+      title: '成都市',
+      headerLeft: <IconButton size={IconButton.size.large} name='md-qr-scanner'/>,
+    }
   },
   Setting: {
     screen: Setting,
@@ -21,6 +27,7 @@ export default {
     userDrawer: {},
   },
   Vip: {
+    main: true,
     screen: Vip,
     navigationOptions: {
       title: '会员卡',
@@ -56,7 +63,6 @@ export default {
     userDrawer: {},
   },
   Holiday: {
-    main: true,
     screen: Holiday,
     navigationOptions: {
       title: '年假',
@@ -75,5 +81,5 @@ export default {
     navigationOptions: {
       title: '全城卡',
     },
-  }
+  },
 }

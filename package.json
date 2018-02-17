@@ -8,10 +8,16 @@
   },
   "dependencies": {
     "antd-mobile": "^2.1.6",
+    "moment": "^2.20.1",
+    "prop-types": "^15.6.0",
     "react": "16.2.0",
-    "react-native": "0.53.0",
+    "react-native": "^0.53.0",
+    "react-native-amap3d": "^0.12.1",
+    "react-native-calendars": "^1.17.1",
+    "react-native-hamap": "^1.0.0",
     "react-native-interactive-avatar": "^2.0.0",
     "react-native-linear-gradient": "^2.4.0",
+    "react-native-svg": "^6.2.1",
     "react-native-vector-icons": "^4.5.0",
     "react-navigation": "^1.0.0"
   },

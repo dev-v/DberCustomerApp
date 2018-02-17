@@ -15,8 +15,8 @@ export default class Card extends React.PureComponent {
     const extras = Card.wrapTextWithString(extra, TextStyle.extra);
     const childrens = Card.wrapTextWithString(children);
     const footers = Card.wrapTextWithString(footer);
-    return <View style={{flex: 1, ...style}}>
-      {title && <View style={styles.header}>
+    return <View style={{flex: 1, borderRadius: BaseStyle.borderRadius, padding: 5, backgroundColor: 'white', ...style}}>
+      {(title || extras) && <View style={styles.header}>
         <Text style={TextStyle.title}>{title}</Text>
         {extras && extras}
       </View>}

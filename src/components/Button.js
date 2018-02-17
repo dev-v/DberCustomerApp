@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import LineGradient from 'react-native-linear-gradient';
+import {BaseStyle} from "./themes/Styles";
 
 const Size = {
   normal: {
@@ -32,70 +33,74 @@ const Type = {
   },
   primary: {
     text: {
-      color: 'white',
+      color: '#fff',
     },
     colors: ['#1890ff', '#40a9ff', '#1890ff'],
   },
   success: {
     text: {
-      color: 'white',
+      color: '#fff',
     },
     colors: ['#52c41a', '#73d13d', '#52c41a'],
   },
   warn: {
     text: {
-      color: 'white',
+      color: '#fff',
     },
     colors: ['#faad14', '#ffc53d', '#faad14'],
   },
   error: {
     text: {
-      color: 'white',
+      color: '#fff',
     },
     colors: ['#f5222d', '#ff4d4f', '#f5222d'],
   }
 }
 
 const disabledStyle = {
-  opacity: 0.7,
+  opacity: 0.8,
 }
 
-export default class Button extends React.PureComponent {
+const enabledStyle = {
+  opacity: 1,
+}
+
+const disabledTextStyle = {
+  color: '#ddd',
+}
+
+export default class Button extends React.Component {
   static size = Size;
   static type = Type;
 
-  getStyles = () => {
-    const {style} = this.props;
+  componentWillMount() {
+    let {style, textStyle, size = Size.normal, type = Type.primary} = this.props;
+    const colors = type.colors;
+    textStyle = {...size.text, ...type.text, ...textStyle};
+    const lineStyle = {
+      borderRadius: BaseStyle.borderRadius, ...size.wrap, alignItems: 'center', ...style,
+    };
+    const flexStyle = {};
     if (style) {
-      const flexStyle = {};
       for (let key in style) {
-        if (key.startsWith('flex')) {
+        if (key.startsWith('flex') || key.startsWith('margin')) {
           flexStyle[key] = style[key];
           delete style[key];
         }
       }
-      return {flexStyle, style};
     }
-    return {};
+    this.style = {colors, textStyle, flexStyle, lineStyle};
   }
 
   render() {
-    const {onPress, children, disabled = false, size = Size.normal, type = Type.primary, textStyle} = this.props;
-    const {flexStyle, style} = this.getStyles();
-    return <TouchableOpacity
-      style={{...(disabled ? disabledStyle : undefined), ...flexStyle}}
-      disabled={disabled}
-      onPress={onPress}>
-      <LineGradient colors={type.colors}
-                    style={{
-                      borderRadius: 4,
-                      ...size.wrap,
-                      alignItems: 'center',
-                      ...style,
-                    }}>
-        <Text style={{...size.text, ...type.text, ...textStyle}}>{children}</Text>
-
-      </LineGradient>
+    const {onPress, children, disabled = false} = this.props;
+    const {colors, textStyle, flexStyle, lineStyle} = this.style;
+    return <TouchableOpacity disabled={disabled} onPress={onPress}>
+      <View style={{...flexStyle, ...(disabled ? disabledStyle : enabledStyle)}}>
+        <LineGradient colors={colors}
+                      style={lineStyle}>
+          <Text style={{...textStyle, ...(disabled ? disabledTextStyle : undefined)}}>{children}</Text>
+        </LineGradient></View>
     </TouchableOpacity>
   }
 }

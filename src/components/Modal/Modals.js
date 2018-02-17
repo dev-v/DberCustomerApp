@@ -1,9 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Alert} from 'react-native';
 import Instance from "./Instance";
 import {TextStyle} from "../themes/Styles";
 import Button from "../Button";
 import Card from "../Layout/Card";
+import Hr from "../Hr";
+import {Util} from "../../util/Util";
 
 let instanceObj;
 
@@ -31,29 +33,29 @@ const getBody = (body) => {
 const getActions = (actions) => {
   if (actions) {
     return Array.isArray(actions) ? <View key='actions' style={styles.footer}>
-      {actions.map(({text, style, onPress}) => {
-        return <Button key={text} style={style} title={text} onPress={() => {
-          onPress(instanceObj)
+      {actions.map(({text, onPress}) => {
+        return <Button key={text} style={{marginLeft: 2}} title={text} onPress={() => {
+          onPress && onPress();
+          instanceObj.close();
         }}>{text}</Button>
       })}
     </View> : actions;
   }
 }
 
-const alertFooter = getActions([{
-  text: '确定',
-  onPress: (modal) => {
-    modal.close();
-  }
-}]);
+const ok = [{
+  text: '确定'
+}];
+
+const alertFooter = getActions(ok);
+
+const hr = <Hr key='hr'/>;
 
 export default class Modals extends React.PureComponent {
 
   static getInstance() {
     if (!instanceObj) {
-      return <Instance ref={(ins) => {
-        instanceObj = ins;
-      }}/>
+      return <Instance ref={ins => instanceObj = ins}/>
     }
   }
 
@@ -72,11 +74,23 @@ export default class Modals extends React.PureComponent {
     const content = [];
     title && content.push(title);
     body && content.push(body);
-    actions && content.push(actions);
+    actions && content.push(hr, actions);
     Modals.open(content);
   }
 
-  static alert(title, body) {
-    Modals.base(title, body, alertFooter);
+  static alert(body, title) {
+    if ((!title || typeof title != 'object') && ((!body || typeof body != 'object'))) {
+      Alert.alert(Util.toStr(title), Util.toStr(body), ok);
+    } else {
+      Modals.base(title, body, alertFooter);
+    }
+  }
+
+  static confirm(title, body, ok) {
+    Modals.base(title, body, [{
+      text: '确定', onPress: ok,
+    }, {
+      text: '取消'
+    }])
   }
 }
