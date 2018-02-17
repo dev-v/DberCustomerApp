@@ -38,7 +38,6 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		F8FDFC56A83A4CFC97CD9C2A /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14BCC6DB4CF94F22A3F0BD98 /* libBVLinearGradient.a */; };
 		FBA7EC355201B5874B72EFC7 /* libPods-DberCustomerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2748225F6F1580005820F79 /* libPods-DberCustomerApp.a */; };
-		7EE5089EDCB8473385287E7C /* libRCTHaMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1F9839951641E291BDD7B4 /* libRCTHaMap.a */; };
 		1B2E777B633D4A829BA03B0B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFE0E8C10C384D61B6F1772D /* Entypo.ttf */; };
 		8E8DBD4A48794F8CB9F3B526 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7F4516DBC614227893B0A2A /* EvilIcons.ttf */; };
 		CE690D37466440FA99B49497 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DED9C44D71D34ECAA2E8C9C4 /* Feather.ttf */; };
@@ -50,6 +49,7 @@
 		0B9AB7D9735E4588A974E718 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECF92CCD8560424D9A5F602D /* Octicons.ttf */; };
 		36A40EEA0D574AC3A12D2DFD /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C20503D48DB64C32803A6B9F /* SimpleLineIcons.ttf */; };
 		32D0E155E6444B5D82078E71 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E4DE9CA7F5D430488B13C7A /* Zocial.ttf */; };
+		C05F6E9B88AA4232A869C84B /* libAMap3D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E426D3F641AA4AC790A678EC /* libAMap3D.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -374,8 +374,6 @@
 		9C15B4209CCB41BDACFD85AB /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B2748225F6F1580005820F79 /* libPods-DberCustomerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DberCustomerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAE8A25CC91944B6B6070BE1 /* RCTHaMap.xcodeproj */ = {isa = PBXFileReference; name = "RCTHaMap.xcodeproj"; path = "../node_modules/react-native-hamap/ios/RCTHaMap.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		5B1F9839951641E291BDD7B4 /* libRCTHaMap.a */ = {isa = PBXFileReference; name = "libRCTHaMap.a"; path = "libRCTHaMap.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		FFE0E8C10C384D61B6F1772D /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		D7F4516DBC614227893B0A2A /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		DED9C44D71D34ECAA2E8C9C4 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
@@ -387,6 +385,8 @@
 		ECF92CCD8560424D9A5F602D /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C20503D48DB64C32803A6B9F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		0E4DE9CA7F5D430488B13C7A /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		19B4BF9048C24A34B1BD0CE7 /* AMap3D.xcodeproj */ = {isa = PBXFileReference; name = "AMap3D.xcodeproj"; path = "../node_modules/react-native-amap3d/lib/ios/AMap3D.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		E426D3F641AA4AC790A678EC /* libAMap3D.a */ = {isa = PBXFileReference; name = "libAMap3D.a"; path = "libAMap3D.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,7 +417,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				F8FDFC56A83A4CFC97CD9C2A /* libBVLinearGradient.a in Frameworks */,
 				FBA7EC355201B5874B72EFC7 /* libPods-DberCustomerApp.a in Frameworks */,
-				7EE5089EDCB8473385287E7C /* libRCTHaMap.a in Frameworks */,
+				C05F6E9B88AA4232A869C84B /* libAMap3D.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,7 +605,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				9C15B4209CCB41BDACFD85AB /* BVLinearGradient.xcodeproj */,
-				EAE8A25CC91944B6B6070BE1 /* RCTHaMap.xcodeproj */,
+				19B4BF9048C24A34B1BD0CE7 /* AMap3D.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1358,7 +1358,7 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-linear-gradientBVLinearGradient",
-					"$(SRCROOT)/../node_modules/react-native-hamap/ios/RCTHaMap/**",
+					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
 				);
 				INFOPLIST_FILE = DberCustomerAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1384,7 +1384,7 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-linear-gradientBVLinearGradient",
-					"$(SRCROOT)/../node_modules/react-native-hamap/ios/RCTHaMap/**",
+					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
 				);
 				INFOPLIST_FILE = DberCustomerAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1412,7 +1412,7 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-linear-gradientBVLinearGradient",
-					"$(SRCROOT)/../node_modules/react-native-hamap/ios/RCTHaMap/**",
+					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
 				);
 				INFOPLIST_FILE = DberCustomerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1436,7 +1436,7 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-linear-gradientBVLinearGradient",
-					"$(SRCROOT)/../node_modules/react-native-hamap/ios/RCTHaMap/**",
+					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
 				);
 				INFOPLIST_FILE = DberCustomerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1466,7 +1466,7 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-linear-gradientBVLinearGradient",
-					"$(SRCROOT)/../node_modules/react-native-hamap/ios/RCTHaMap/**",
+					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
 				);
 				INFOPLIST_FILE = "DberCustomerApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1501,7 +1501,7 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-linear-gradientBVLinearGradient",
-					"$(SRCROOT)/../node_modules/react-native-hamap/ios/RCTHaMap/**",
+					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
 				);
 				INFOPLIST_FILE = "DberCustomerApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
