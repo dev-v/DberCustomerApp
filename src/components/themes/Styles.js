@@ -13,7 +13,7 @@ const BaseStyle = {
   edgeVertical: 20,
   edgeHorizontal: 16,
   fontFamily: 'HelveticaNeue-Thin',
-  borderRadius: 10,
+  borderRadius: 5,
   container: {
     flex: 1,
     backgroundColor: '#fff',

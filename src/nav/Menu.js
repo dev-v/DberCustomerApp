@@ -13,6 +13,7 @@ import IconButton from "../components/Icon/IconButton";
 
 export default {
   Shop: {
+    main: true,
     screen: Shop,
     navigationOptions: {
       title: '成都市',
@@ -27,7 +28,6 @@ export default {
     userDrawer: {},
   },
   Vip: {
-    main: true,
     screen: Vip,
     navigationOptions: {
       title: '会员卡',

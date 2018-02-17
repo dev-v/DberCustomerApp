@@ -19,7 +19,7 @@ export default class ShopCard extends React.PureComponent {
     return (<View>
           {Modals.getInstance()}
           <IconButton name='info' source={Icons.Feather} text={'说明'} onPress={() => {
-            Modals.alert('店铺年卡使用说明', cardRule);
+            Modals.alert(cardRule,'店铺年卡使用说明');
           }}/>
         </View>
     );

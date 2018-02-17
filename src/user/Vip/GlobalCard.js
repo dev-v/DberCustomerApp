@@ -21,7 +21,7 @@ class GlobalCard extends React.PureComponent {
     return (<View style={{flexDirection: 'row'}}>
           {Modals.getInstance()}
           <IconButton name='info' source={Icons.Feather} text={'说明'} onPress={() => {
-            Modals.alert('全城通卡使用说明', cardRule);
+            Modals.alert(cardRule,'全城通卡使用说明');
           }}/>
           <IconButton name='shopping-cart' size={IconButton.size.small} source={Icons.Feather} text='购买'
                       onPress={() => {
