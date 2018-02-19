@@ -14,7 +14,7 @@ import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
 import Card from "../Layout/Card";
 import Hr from "../Hr";
 import Button from "../Button";
-import {Util} from "../../util/Util";
+import {IS_IOS, Util} from "../../util/Util";
 import SliderEntry from "../Image/SliderEntry";
 
 let nav;
@@ -69,7 +69,7 @@ export default class Modals extends React.PureComponent {
   }
 
   componentWillMount() {
-    if (sty == ModalsStyle.image) {
+    if (sty == ModalsStyle.image && !IS_IOS) {
       this.focus = nav.addListener('willFocus', () => StatusBar.setBackgroundColor(Colors7.imgBgTop));
       this.blur = nav.addListener('willBlur', () => StatusBar.setBackgroundColor(Colors7.statusBgColor));
     }
@@ -84,7 +84,7 @@ export default class Modals extends React.PureComponent {
         this.press = false;
       },
       onPanResponderTerminationRequest: () => {
-        return !this.press;
+        return true;
       },
       onPanResponderRelease: () => {
         if (this.press) {
@@ -95,7 +95,7 @@ export default class Modals extends React.PureComponent {
   }
 
   componentWillUnmount() {
-    if (sty == ModalsStyle.image) {
+    if (sty == ModalsStyle.image && !IS_IOS) {
       this.focus.remove();
       this.blur.remove();
     }

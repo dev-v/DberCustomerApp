@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
     padding: 6,
   },
   carousel: {
-    alignSelf: 'flex-end',
   },
   bottom: {
     flexDirection: 'row',

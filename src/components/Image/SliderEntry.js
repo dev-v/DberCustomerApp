@@ -19,11 +19,10 @@ export default class SliderEntry extends React.PureComponent {
   render() {
     return (
         <View style={styles.slideInnerContainer}>
-          <Text>aa沙发舒服撒</Text>
           <FastImage resizeMode={FastImage.resizeMode.cover}
-                 borderRadius={BaseStyle.borderRadius}
-                 style={styles.image}
-                 source={{uri: this.props.uri}}/>
+                     borderRadius={BaseStyle.borderRadius}
+                     style={styles.image}
+                     source={{uri: this.props.uri}}/>
         </View>
     );
   }
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
     height: SliderEntry.itemHeight,
     width: SliderEntry.itemWidth,
     paddingHorizontal: itemHorizontalMargin,
-    backgroundColor: Colors7.white,
+    // backgroundColor: Colors7.white,
     paddingBottom: 18 // needed for shadow
   },
   imageContainer: {
@@ -42,8 +41,8 @@ const styles = StyleSheet.create({
     marginBottom: IS_IOS ? 0 : -1, // Prevent a random Android rendering issue
   },
   image: {
-    height: SliderEntry.itemHeight,
-    width: SliderEntry.itemWidth,
+    // height: SliderEntry.itemHeight,
+    // width: SliderEntry.itemWidth,
     flex: 1,
   },
   // slideInnerContainer: {

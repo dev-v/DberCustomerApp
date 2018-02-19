@@ -18,11 +18,11 @@ export default {
   Modals: {
     screen: Modals,
   },
-  share: {
-    main: true,
-    screen: ShareServiceDetail,
-  },
+  // share: {
+  //   screen: ShareServiceDetail,
+  // },
   Shop: {
+    main: true,
     screen: Shop,
     navigationOptions: {
       title: '成都市',
