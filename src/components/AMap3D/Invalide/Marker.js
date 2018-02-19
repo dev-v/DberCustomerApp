@@ -1,10 +1,9 @@
 // @flow
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Platform, requireNativeComponent, StyleSheet, ViewPropTypes, View,TouchableOpacity ,Text} from 'react-native'
-import { LatLng, Point } from './PropTypes'
+import {Platform, requireNativeComponent, StyleSheet, ViewPropTypes, View, TouchableOpacity, Text} from 'react-native'
+import {LatLng, Point} from './PropTypes'
 import Component from './Component'
-import Modals from "../../Modal/Modals";
 
 const style = StyleSheet.create({
   overlay: {
@@ -162,7 +161,8 @@ export default class Marker extends Component<any> {
 
   renderCustomMarker(icon: () => View) {
     if (icon) {
-      this.icon = <View style={style.overlay}><View><TouchableOpacity onPress={()=>{Modals.alert('aaaa')}}><Text>aaaa</Text></TouchableOpacity></View></View>
+      this.icon = <View style={style.overlay}><View><TouchableOpacity onPress={() => {
+      }}><Text>aaaa</Text></TouchableOpacity></View></View>
       return this.icon
     }
     return null
@@ -178,10 +178,10 @@ export default class Marker extends Component<any> {
 
   render() {
     return (
-      <AMapMarker {...this.props}>
-        {this.renderCustomMarker(this.props.icon)}
-        {this.renderInfoWindow(this.props.children)}
-      </AMapMarker>
+        <AMapMarker {...this.props}>
+          {this.renderCustomMarker(this.props.icon)}
+          {this.renderInfoWindow(this.props.children)}
+        </AMapMarker>
     )
   }
 }

@@ -1,8 +1,12 @@
 import moment from 'moment';
-import {Platform} from 'react-native';
+import {Platform, Dimensions} from 'react-native';
+
+const IS_IOS = Platform.OS === 'ios';
+const {width: viewportWidth, height: viewportHeight} = Dimensions.get('window');
 
 class Time {
-  static format_date = 'YYYY-MM-DD'
+  static format_date = 'YYYY-MM-DD';
+  static format_time = 'HH:mm';
 
   static today(hour = 23, minute = 59, second = 59) {
     return moment().hour(hour).minute(minute).second(second);
@@ -12,8 +16,16 @@ class Time {
     return Time.today(hour, minute, second).add(1, 'd');
   }
 
-  static formatDate(time, format = this.format_date) {
+  static formatDate(time, format = Time.format_date) {
     return typeof time == 'string' ? time : time.format(format);
+  }
+
+  /**
+   * @param time (moment|minute)
+   * @param format
+   */
+  static formatTime(time, format = Time.format_time) {
+    return typeof time == 'number' ? moment().hour(0).minute(time).format(format) : (time || moment()).format(format);
   }
 }
 
@@ -21,7 +33,15 @@ class Util {
 
   static isBlank = val => (val == 0 && typeof val == 'string') || (!val && val != 0);
 
-  static isIos = Platform.OS == 'ios';
+  static wp(percentage) {
+    const value = (percentage * viewportWidth) / 100;
+    return Math.round(value);
+  }
+
+  static hp(percentage) {
+    const value = (percentage * viewportHeight) / 100;
+    return Math.round(value);
+  }
 
   static isSame = (s, t) => {
     if (s == t) {
@@ -53,4 +73,4 @@ class Util {
 }
 
 
-export {Time, Util};
+export {Time, Util, IS_IOS};

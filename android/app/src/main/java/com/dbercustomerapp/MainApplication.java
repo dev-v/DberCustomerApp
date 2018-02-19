@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import cn.qiuxiang.react.amap3d.AMap3DPackage;
+import com.dylanvann.fastimage.FastImageViewPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.horcrux.svg.SvgPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new AMap3DPackage(),
+            new FastImageViewPackage(),
             new VectorIconsPackage(),
             new SvgPackage(),
             new LinearGradientPackage()

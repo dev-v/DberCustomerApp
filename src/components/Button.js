@@ -1,22 +1,28 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 import LineGradient from 'react-native-linear-gradient';
-import {BaseStyle} from "./themes/Styles";
+import {BaseStyle, Colors7} from "./themes/Styles";
 
+
+const textSize = StyleSheet.create({
+  normal: {
+    fontSize: 16,
+  },
+  large: {
+    fontSize: 20,
+  }
+});
 const Size = {
   normal: {
-    text: {
-      fontSize: 16,
-    },
+    text: textSize.normal,
     wrap: {
       paddingVertical: 6,
       paddingHorizontal: 12,
+      marginLeft: 3,
     }
   },
   large: {
-    text: {
-      fontSize: 20,
-    },
+    text: textSize.large,
     wrap: {
       paddingVertical: 9,
       paddingHorizontal: 15,
@@ -24,35 +30,34 @@ const Size = {
   }
 };
 
+const textType = StyleSheet.create({
+  base: {
+    color: 'black',
+  },
+  white: {
+    color: Colors7.white,
+  },
+});
+
 const Type = {
   base: {
-    text: {
-      color: 'black',
-    },
+    text: textType.base,
     colors: ['#bfbfbf', '#d9d9d9', '#bfbfbf'],
   },
   primary: {
-    text: {
-      color: '#fff',
-    },
+    text: textType.white,
     colors: ['#1890ff', '#40a9ff', '#1890ff'],
   },
   success: {
-    text: {
-      color: '#fff',
-    },
+    text: textType.white,
     colors: ['#52c41a', '#73d13d', '#52c41a'],
   },
   warn: {
-    text: {
-      color: '#fff',
-    },
+    text: textType.white,
     colors: ['#faad14', '#ffc53d', '#faad14'],
   },
   error: {
-    text: {
-      color: '#fff',
-    },
+    text: textType.white,
     colors: ['#f5222d', '#ff4d4f', '#f5222d'],
   }
 }
@@ -69,6 +74,10 @@ const disabledTextStyle = {
   color: '#ddd',
 }
 
+const lineStyle = {
+  borderRadius: BaseStyle.borderRadius, alignItems: 'center',
+}
+
 export default class Button extends React.Component {
   static size = Size;
   static type = Type;
@@ -76,10 +85,6 @@ export default class Button extends React.Component {
   componentWillMount() {
     let {style, textStyle, size = Size.normal, type = Type.primary} = this.props;
     const colors = type.colors;
-    textStyle = {...size.text, ...type.text, ...textStyle};
-    const lineStyle = {
-      borderRadius: BaseStyle.borderRadius, ...size.wrap, alignItems: 'center', ...style,
-    };
     const flexStyle = {};
     if (style) {
       for (let key in style) {
@@ -89,17 +94,22 @@ export default class Button extends React.Component {
         }
       }
     }
-    this.style = {colors, textStyle, flexStyle, lineStyle};
+    this.style = {
+      colors,
+      textStyle: [size.text, type.text, textStyle],
+      flexStyle,
+      lineStyle: [size.wrap, style, lineStyle]
+    };
   }
 
   render() {
-    const {onPress, children, disabled = false} = this.props;
+    const {onPress, children, disabled} = this.props;
     const {colors, textStyle, flexStyle, lineStyle} = this.style;
     return <TouchableOpacity disabled={disabled} onPress={onPress}>
       <View style={{...flexStyle, ...(disabled ? disabledStyle : enabledStyle)}}>
         <LineGradient colors={colors}
                       style={lineStyle}>
-          <Text style={{...textStyle, ...(disabled ? disabledTextStyle : undefined)}}>{children}</Text>
+          <Text style={[textStyle, disabled && disabledTextStyle]}>{children}</Text>
         </LineGradient></View>
     </TouchableOpacity>
   }

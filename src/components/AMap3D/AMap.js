@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {MapView, Marker} from 'react-native-amap3d';
+import {StyleSheet, View} from 'react-native';
+import {MapView} from 'react-native-amap3d';
 import Icon, {Icons} from "../Icon/Icon";
 import IconButton from "../Icon/IconButton";
 import {Colors7} from "../themes/Styles";
@@ -101,7 +101,6 @@ export default class AMap extends React.PureComponent {
     this.props.onChange && this.props.onChange(nativeEvent, userLocation);
   }
 
-
   render() {
     const {config, style, children, markers} = this.props;
     return (
@@ -134,10 +133,10 @@ export default class AMap extends React.PureComponent {
               {...config}
 
               ref={ref => this.map = ref}
-          >
-            {markers}
-          </MapView>
-          <Icon style={centerIconStyle} name='location-pin' source={Icons.Entypo}/>
+
+              children={markers}
+          />
+          {centerIcon}
           <View style={styles.bottom}>
             <View style={styles.locationWrapStyle}>
               <IconButton size={IconButton.size.large} name='my-location' iconStyle={{paddingVertical: 5,}}
@@ -153,12 +152,15 @@ export default class AMap extends React.PureComponent {
   }
 }
 
-const centerIconStyle = {
+
+const centerIcon = <Icon style={{
   position: 'absolute',
   alignSelf: 'center',
   fontSize: 32,
   color: Colors7.cyan,
-}
+  padding: 0,
+  margin: 0,
+}} name='location-pin' source={Icons.Entypo}/>;
 
 const childrenStyle = {
   width: '100%',
@@ -184,7 +186,7 @@ const styles = StyleSheet.create({
   },
   locationWrapStyle: {
     borderRadius: 560,
-    backgroundColor: 'white',
+    backgroundColor: Colors7.white,
     alignItems: 'center',
     justifyContent: 'center',
   },

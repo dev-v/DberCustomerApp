@@ -1,10 +1,13 @@
 import React from 'react';
+import {BackAndroid} from 'react-native';
 import {DrawerNavigator, StackNavigator} from 'react-navigation';
 import './src/util/Config';
 import IconButton from './src/components/Icon/IconButton';
 import DrawerContent from './src/nav/DrawerContent';
 import {NavStyle} from "./src/components/themes/Styles";
 import Menu from "./src/nav/Menu";
+import {IS_IOS} from "./src/util/Util";
+import Modals from "./src/components/Modal/Modals";
 
 
 const parseMenu = () => {
@@ -31,28 +34,31 @@ const parseMenu = () => {
 const {stack, drawer, main} = parseMenu(Menu);
 
 const Stack = StackNavigator(
-  stack,
-  {
-    initialRouteName: main,
-    navigationOptions: ({navigation}) => {
-      return {
-        headerTitleStyle: NavStyle.titleStyle,
-        headerStyle: NavStyle.headerStyle,
-        headerRight: <IconButton name='ios-contact' size={IconButton.size.large} onPress={() => {
-          navigation.navigate('DrawerOpen');
-        }}/>
-      }
-    },
-  });
+    stack,
+    {
+      initialRouteName: main,
+      headerMode: IS_IOS ? 'float' : 'screen',
+      navigationOptions: ({navigation}) => {
+        Modals.setNavigation(navigation);
+        return {
+          headerTitleStyle: NavStyle.titleStyle,
+          headerStyle: NavStyle.headerStyle,
+          headerRight: <IconButton name='ios-contact' size={IconButton.size.large} onPress={() => {
+            navigation.navigate('DrawerOpen');
+          }}/>
+        }
+      },
+    });
+
 
 export default DrawerNavigator(
-  {
-    Stack: {
-      screen: Stack,
+    {
+      Stack: {
+        screen: Stack,
+      },
+      ...drawer,
     },
-    ...drawer,
-  },
-  {
-    drawerPosition: 'right',
-    contentComponent: DrawerContent,
-  });
+    {
+      drawerPosition: 'right',
+      contentComponent: DrawerContent,
+    });

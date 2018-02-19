@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {BaseStyle, TextStyle} from "../themes/Styles";
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
 
 export default class Card extends React.PureComponent {
   static wrapTextWithString = (content, style = TextStyle.base) => {
@@ -10,18 +10,29 @@ export default class Card extends React.PureComponent {
     return content;
   };
 
-  render() {
-    const {title, extra, children, footer, style} = this.props;
+  getTitle = () => {
+    const {title, extra, onTitlePress} = this.props;
     const extras = Card.wrapTextWithString(extra, TextStyle.extra);
-    const childrens = Card.wrapTextWithString(children);
-    const footers = Card.wrapTextWithString(footer);
-    return <View style={{flex: 1, borderRadius: BaseStyle.borderRadius, padding: 5, backgroundColor: 'white', ...style}}>
-      {(title || extras) && <View style={styles.header}>
-        <Text style={TextStyle.title}>{title}</Text>
+    if (title || extras) {
+      const view = <View style={styles.header}>
+        {Card.wrapTextWithString(title, TextStyle.subTitle)}
         {extras && extras}
-      </View>}
-      {childrens && <View style={styles.body}>
-        {childrens}
+      </View>;
+      return onTitlePress ? <TouchableOpacity onPress={onTitlePress}>
+        {view}
+      </TouchableOpacity> : view
+    }
+  }
+
+  render() {
+    const {children, footer, style} = this.props;
+    const child = Card.wrapTextWithString(children);
+    const footers = Card.wrapTextWithString(footer);
+    return <View
+        style={{flex: 1, borderRadius: BaseStyle.borderRadius, padding: 5, backgroundColor: Colors7.white, ...style}}>
+      {this.getTitle()}
+      {child && <View style={styles.body}>
+        {child}
       </View>}
       {footers && <View style={styles.footer}>
         {footers}
@@ -34,7 +45,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     paddingBottom: 3,
     paddingHorizontal: 6,
     borderBottomWidth: 1,

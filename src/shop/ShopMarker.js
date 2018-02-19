@@ -6,12 +6,18 @@ import {Polygon, Svg} from 'react-native-svg';
 
 let activeMarker;
 export default class ShopMarker extends React.PureComponent {
+
+  isUnmount = false;
+
   onPress = () => {
     this.props.onPress && this.props.onPress(this);
     this.setActive(true)
   }
 
   setActive = (active) => {
+    if (this.isUnmount) {
+      return;
+    }
     let iconStyle, pol;
     if (active) {
       activeMarker && activeMarker.setActive(false);
@@ -25,25 +31,28 @@ export default class ShopMarker extends React.PureComponent {
     this.setState({
       icon: () => <View style={styles.container}>
         <View style={iconStyle}><Text style={styles.markerText}>{this.props.text}</Text></View>
-        <Svg width='10' height='10'>
-          {pol}
-        </Svg>
+        {pol}
       </View>
     });
+  }
+
+  componentWillUnmount() {
+    this.isUnmount = true;
   }
 
   componentWillMount() {
     this.setActive(this.props.active)
   }
 
+
   render() {
     return (<Marker infoWindowDisabled={true} {...this.props} onPress={this.onPress} icon={this.state.icon}/>)
   }
 }
 
-const polygon = <Polygon points="0,0 5,10 10,0" fill={Colors7.lime}/>;
+const polygon = <Svg width='10' height='10'><Polygon points="0,0 5,10 10,0" fill={Colors7.lime}/></Svg>;
 
-const activePolygon = <Polygon points="0,0 5,10 10,0" fill={Colors7.orange}/>;
+const activePolygon = <Svg width='10' height='10'><Polygon points="0,0 5,10 10,0" fill={Colors7.orange}/></Svg>;
 
 const styles = StyleSheet.create({
   container: {
@@ -63,6 +72,6 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   markerText: {
-    color: '#fff',
+    color: Colors7.white,
   }
 });

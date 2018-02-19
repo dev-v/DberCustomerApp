@@ -1,10 +1,10 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {withNavigation} from 'react-navigation';
-import Modals from "../../components/Modal/Modals";
 import {TextStyle} from "../../components/themes/Styles";
 import IconButton from "../../components/Icon/IconButton";
 import {Icons} from "../../components/Icon/Icon";
+import Modals from "../../components/Modal/Modals";
 
 const cardRule = (<View>
   <Text style={TextStyle.base}>1、一天至多使用全城卡消费一次。</Text>
@@ -19,9 +19,8 @@ const cardRule = (<View>
 class GlobalCard extends React.PureComponent {
   render() {
     return (<View style={{flexDirection: 'row'}}>
-          {Modals.getInstance()}
           <IconButton name='info' source={Icons.Feather} text={'说明'} onPress={() => {
-            Modals.alert(cardRule,'全城通卡使用说明');
+            Modals.alert(cardRule, '全城通卡使用说明');
           }}/>
           <IconButton name='shopping-cart' size={IconButton.size.small} source={Icons.Feather} text='购买'
                       onPress={() => {

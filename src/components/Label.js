@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import {BaseStyle, Colors7} from "./themes/Styles";
+import {BaseStyle, Colors7, TextStyle} from "./themes/Styles";
 
 export default class Label extends React.PureComponent {
 
@@ -23,12 +23,17 @@ export default class Label extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: Colors7.blue,
+    borderColor: Colors7.blue,
     borderRadius: BaseStyle.borderRadius,
-    padding: 5,
+    borderWidth: 1,
+    borderStyle: 'dotted',
+    paddingHorizontal: 5,
+    paddingVertical: 3,
     marginHorizontal: 1.5,
   },
   text: {
-    color: '#fff',
+    fontFamily: BaseStyle.fontFamily,
+    fontSize: 13,
+    color: BaseStyle.color,
   }
 });

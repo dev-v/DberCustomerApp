@@ -9,7 +9,7 @@ import {Time, Util} from "../util/Util";
 
 const extra = <Icon name='chevron-right' source={Icon.source.Entypo}/>;
 
-class ShopMapDetail extends React.PureComponent {
+export default class ShopDetail extends React.PureComponent {
 
 
   getTitle = (shop) => {
@@ -28,12 +28,12 @@ class ShopMapDetail extends React.PureComponent {
   };
 
   onTitlePress = () => {
-    this.props.navigation.navigate('ShopDetail', {shop: this.props.shop});
+    this.props.navigation.navigate('ShopDetail', {shop: this.props.navigation.state.params.shop});
   }
 
 
   render() {
-    const {shop} = this.props;
+    const {shop} = this.props.navigation.state.params;
     const {id, address, price} = shop;
     const title = this.getTitle(shop);
 
@@ -53,5 +53,3 @@ class ShopMapDetail extends React.PureComponent {
 const styles = StyleSheet.create({
   title: {flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', flex: 1, marginRight: 22}
 });
-
-export default withNavigation(ShopMapDetail);

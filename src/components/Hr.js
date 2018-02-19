@@ -30,7 +30,7 @@ export default class Hr extends React.PureComponent {
 const styles = {
   style: {
     flexDirection: 'row',
-    paddingVertical: 8,
+    paddingVertical: 6,
   },
   lineStyle: {
     flex: 1, borderColor: BaseStyle.borderColor, borderBottomWidth: 0.7, height: 0,

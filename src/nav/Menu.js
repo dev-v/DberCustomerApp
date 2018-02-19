@@ -10,15 +10,27 @@ import Setting from "../user/Setting/Setting";
 import Vip from "../user/Vip/Vip";
 import GlobalCardBuy from "../user/Vip/GlobalCardBuy";
 import IconButton from "../components/Icon/IconButton";
+import ShopDetail from "../shop/ShopDetail";
+import Modals from "../components/Modal/Modals";
+import ShareServiceDetail from "../shop/ShareServiceDetail";
 
 export default {
-  Shop: {
+  Modals: {
+    screen: Modals,
+  },
+  share: {
     main: true,
+    screen: ShareServiceDetail,
+  },
+  Shop: {
     screen: Shop,
     navigationOptions: {
       title: '成都市',
       headerLeft: <IconButton size={IconButton.size.large} name='md-qr-scanner'/>,
     }
+  },
+  ShopDetail: {
+    screen: ShopDetail,
   },
   Setting: {
     screen: Setting,

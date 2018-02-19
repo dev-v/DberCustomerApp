@@ -8,32 +8,10 @@ import {StyleSheet, Platform} from 'react-native';
 // HelveticaNeue-Light
 // Helvetica-Light
 
-const BaseStyle = {
-  borderColor: '#ddd',
-  edgeVertical: 20,
-  edgeHorizontal: 16,
-  fontFamily: 'HelveticaNeue-Thin',
-  borderRadius: 5,
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 16,
-    paddingVertical: 16,
-  },
-  flexBetween: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 6,
-  },
-  center: {
-    position: 'absolute',
-    left: '48%',
-    top: '50%',
-    backgroundColor: 'red',
-  }
-}
-
 const Colors7 = {
+  black: '#1a1917',
+  white: '#fff',
+  gray: '#888888',
   volcano: '#d4380d',
   orange: '#d46b08',
   gold: '#d48806',
@@ -42,6 +20,38 @@ const Colors7 = {
   green: '#389e0d',
   cyan: '#08979c',
   blue: '#096dd9',
+  imgBgTop: '#21D4FD',
+  imgBgBottom: '#B721FF',
+  imgBgTop: '#1a1917',
+  imgBgBottom: '#1a1917',
+  statusBgColor: '#fff',
+}
+
+const BaseStyle = {
+  borderColor: '#ddd',
+  edgeVertical: 20,
+  edgeHorizontal: 16,
+  fontFamily: 'HelveticaNeue-Thin',
+  color: '#777',
+  borderRadius: 5,
+  container: {
+    flex: 1,
+    backgroundColor: Colors7.white,
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+  },
+  flexBetween: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 3,
+  },
+  center: {
+    position: 'absolute',
+    left: '48%',
+    top: '50%',
+    backgroundColor: 'red',
+  },
 }
 
 export default StyleSheet.create({
@@ -54,40 +64,35 @@ const NavStyle = StyleSheet.create({
   titleStyle: {
     fontSize: 22,
     fontWeight: 'normal',
+    fontFamily: BaseStyle.fontFamily,
     color: '#595959',
     alignSelf: 'center',
   },
   headerStyle: {
     elevation: 0,
     shadowOpacity: 0,
+    backgroundColor: Colors7.white,
   }
 });
 
 const TextStyle = {
-  navTitleStyle: {
-    fontSize: 22,
-    fontFamily: BaseStyle.fontFamily,
-    fontWeight: 'normal',
-    color: '#595959',
-    alignSelf: 'center',
-  },
   title: {
     fontFamily: BaseStyle.fontFamily,
     fontSize: 22,
     color: '#595959',
-    paddingVertical: 1,
+    paddingVertical: 3,
   },
   subTitle: {
     fontFamily: BaseStyle.fontFamily,
-    fontSize: 20,
+    fontSize: 19,
     color: '#595959',
-    paddingVertical: 1,
+    paddingVertical: 2,
   },
   base: {
     fontSize: 16,
     fontFamily: BaseStyle.fontFamily,
     color: '#595959',
-    paddingVertical: 3,
+    paddingVertical: 1,
   },
   extra: {
     fontFamily: BaseStyle.fontFamily,
@@ -95,6 +100,12 @@ const TextStyle = {
     color: '#777',
     paddingVertical: 1,
   },
+  small: {
+    fontFamily: BaseStyle.fontFamily,
+    fontSize: 12,
+    color: '#777',
+    paddingVertical: 1,
+  }
 };
 
 export {TextStyle, BaseStyle, NavStyle, Colors7};

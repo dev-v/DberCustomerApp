@@ -1,24 +1,17 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Circle, Marker} from 'react-native-amap3d';
-import IconButton from "../components/Icon/IconButton";
 import {BaseStyle, Colors7, TextStyle} from "../components/themes/Styles";
-import Styles from "../components/themes/Styles";
-import CenterView from "../components/Layout/CenterView";
-import Icon, {Icons} from "../components/Icon/Icon";
 import AMap from "../components/AMap3D/AMap";
-import {RectangleMarker} from "../components/AMap3D/Invalide/RectangleMarker";
-import Modals from "../components/Modal/Modals";
 import ShopMarker from "./ShopMarker";
-import ShopService from "./ShopService";
 import ShopMapDetail from "./ShopMapDetail";
 import {CircleMarker} from "../components/AMap3D/Markers";
 import {Util} from "../util/Util";
+import Container from "../components/Layout/Container";
 
 
 //店铺收藏功能放shop模块
-const noService = 10;
-const staticsServie = 14;
+const noService = 8;
+const staticsServie = 9;
 // zoomLevel <10 不作处理 <14 统计
 export default class Shop extends React.PureComponent {
   state = {
@@ -27,24 +20,38 @@ export default class Shop extends React.PureComponent {
     activeShop: undefined,//激活店铺详情
   }
 
-  onChange = (location, userLocation) => {
+  closeBottom = () => {
     const {activeMarker} = this.state;
-
-    if (activeMarker && this.triggerMapMove) {
+    if (activeMarker) {
       activeMarker.setActive(false);
-      this.state.activeMarker = undefined;
-      this.state.activeShop = undefined;
-      this.state.activeData = undefined;
-      this.triggerMapMove = false;
+      this.setState({
+        ...this.state,
+        activeMarker: undefined,
+        activeShop: undefined,
+        activeData: undefined,
+      });
     }
+  }
 
-    if (this.state.activeMarker) {
-      this.triggerMapMove = true;
-    }
+  // triggerMapMove = false;
+  onChange = (location, userLocation) => {
+    // const {activeMarker} = this.state;
+    //
+    // if (activeMarker && this.triggerMapMove) {
+    //   activeMarker.setActive(false);
+    //   this.state.activeMarker = undefined;
+    //   this.state.activeShop = undefined;
+    //   this.state.activeData = undefined;
+    //   this.triggerMapMove = false;
+    // }
+    //
+    // if (this.state.activeMarker) {
+    //   this.triggerMapMove = true;
+    // }
 
     this.setState({
       ...this.state,
-      content: <Text style={TextStyle.base}>正在加载数据...</Text>,
+      content: <Text style={TextStyle.base}>搜索中...</Text>,
     });
 
     const {zoomLevel, latitude, longitude} = location;
@@ -70,6 +77,8 @@ export default class Shop extends React.PureComponent {
         lat: 30537549,
         lng: 104082147,
         name: '奇迹健身（苏宁店）',
+        price: 5,
+        address: '我在这里非理发都是浪费手机费拉升房间打扫是否'
       }], count = dataSource.length;
       this.setState({
         ...this.state,
@@ -79,7 +88,6 @@ export default class Shop extends React.PureComponent {
     }
   }
 
-  triggerMapMove = false;
   renderShopDetail = (activeData, activeMarker) => {
     if (!Util.isSame(this.state.activeData, activeData)) {
       this.setState({
@@ -88,7 +96,7 @@ export default class Shop extends React.PureComponent {
         activeMarker,
         activeData,
       });
-      this.triggerMapMove = false;
+      // this.triggerMapMove = false;
     }
   }
 
@@ -96,31 +104,39 @@ export default class Shop extends React.PureComponent {
     const unit = AMap.coordinateUnit;
     return dataSource.map((data) => {
       const {id, lat, lng, name} = data;
-      return <ShopMarker key={id} text={name}
-                         coordinate={{latitude: lat / unit, longitude: lng / unit,}}
-                         onPress={(marker) => {
-                           this.renderShopDetail(data, marker);
-                         }}/>
+      return <ShopMarker
+          key={id}
+          text={name}
+          coordinate={{latitude: lat / unit, longitude: lng / unit,}}
+          onPress={(marker) => {
+            this.renderShopDetail(data, marker);
+          }}/>
     });
   }
 
   render() {
     const {markers, activeShop, content} = this.state;
-    return (<AMap onChange={this.onChange} markers={markers}>
-      <View style={styles.content}>
-        {content}
-      </View>
-      {activeShop}
-    </AMap>);
+    return (
+        <Container style={styles.container}>
+          <AMap config={{zoomLevel: 7, onPress: this.closeBottom}} onChange={this.onChange} markers={markers}>
+            <View style={styles.content}>
+              {content}
+            </View>
+            {activeShop}
+          </AMap>
+        </Container>);
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 0, paddingHorizontal: 0, paddingVertical: 0
+  },
   content: {
-    backgroundColor: '#fff',
+    backgroundColor: Colors7.white,
     borderRadius: BaseStyle.borderRadius,
     justifyContent: 'center',
     height: 50,
-    paddingHorizontal: 6,
+    paddingHorizontal: 9,
   }
 });

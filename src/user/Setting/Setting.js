@@ -5,11 +5,12 @@ import IconButton from "../../components/Icon/IconButton";
 import CheckLabel from "../../components/Icon/CheckLabel";
 import Styles, {TextStyle} from "../../components/themes/Styles";
 import {Icons} from "../../components/Icon/Icon";
+import Container from "../../components/Layout/Container";
 
-const size=IconButton.size.normal;
+const size = IconButton.size.normal;
 export default class Setting extends React.PureComponent {
   render() {
-    return (<View style={Styles.container}>
+    return (<Container>
       <View style={styles.head}>
         <Avatar username='abc' size={'default'} style={{marginBottom: 10}}
                 placeholderURI='http://p31z7ux9b.bkt.clouddn.com/2123f7686d354b4d1b67b99a7f657747.jpg'/>
@@ -27,7 +28,7 @@ export default class Setting extends React.PureComponent {
         <IconButton size={size} name='badge' source={Icons.SimpleLineIcons} text='元素勋章'/>
         <CheckLabel text='氢'/>
       </View>
-    </View>);
+    </Container>);
   }
 }
 

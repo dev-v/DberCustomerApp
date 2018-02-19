@@ -1,11 +1,11 @@
 import React from 'react';
 import {Text, StyleSheet} from 'react-native';
 import {Marker, Circle} from 'react-native-amap3d';
-import {BaseStyle} from "../themes/Styles";
+import {BaseStyle, Colors7} from "../themes/Styles";
 
 const styles = StyleSheet.create({
   text: {
-    color: '#fff',
+    color: Colors7.white,
     fontSize: 36,
     fontFamily: BaseStyle.fontFamily,
     paddingBottom: 8,

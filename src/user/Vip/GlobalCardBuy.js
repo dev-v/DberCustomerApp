@@ -28,7 +28,7 @@ class GlobalCardBuy extends React.PureComponent {
   }
 
   render() {
-    return (<Card style={BaseStyle.container} title='全城卡购买'>
+    return (<Card title='全城卡购买'>
       <FlatList ItemSeparatorComponent={Hr} data={this.state.dataSource} renderItem={this.renderItem}/>
     </Card>);
   }

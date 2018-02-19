@@ -10,4 +10,6 @@ target 'DberCustomerApp' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'SDWebImage', '~> 4.0'
+
 end
