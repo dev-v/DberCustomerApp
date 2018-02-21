@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {TextStyle} from "../../components/themes/Styles";
 import IconButton from "../../components/Icon/IconButton";
-import {Icons} from "../../components/Icon/Icon";
+import {IconSource} from "../../components/Icon/Icon";
 import Modals from "../../components/Modal/Modals";
 
 const cardRule = (<View>
@@ -17,7 +17,7 @@ const cardRule = (<View>
 export default class ShopCard extends React.PureComponent {
   render() {
     return (<View>
-          <IconButton name='info' source={Icons.Feather} text={'说明'} onPress={() => {
+          <IconButton name='info' source={IconSource.Feather} text={'说明'} onPress={() => {
             Modals.alert(cardRule, '店铺年卡使用说明');
           }}/>
         </View>

@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 import Calendars from "../../components/Time/Calendars";
 import Card from "../../components/Layout/Card";
 import IconButton from "../../components/Icon/IconButton";
-import {Icons} from "../../components/Icon/Icon";
+import {IconSource} from "../../components/Icon/Icon";
 import Container from "../../components/Layout/Container";
 import Modals from "../../components/Modal/Modals";
 
@@ -30,7 +30,7 @@ class Holiday extends React.Component {
     return (
         <Container>
           <Card style={{flex: 1}} title={`我的休假（${markedDates.length}/90）`}
-                extra={<IconButton name='info' source={Icons.Feather} text={'说明'} onPress={() => {
+                extra={<IconButton name='info' source={IconSource.Feather} text={'说明'} onPress={() => {
                   Modals.alert('休假期间不会进行懒惰惩罚！');
                 }}/>}>
             <Calendars markedDates={markedDates} onChange={this.onChange}/>

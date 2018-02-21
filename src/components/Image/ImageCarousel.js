@@ -6,6 +6,8 @@ import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
 import IconButton from "../Icon/IconButton";
 import Button from "../Button";
 import ImageButton from "./ImageButton";
+import ImageButtons from "./ImageButtons";
+import {Util} from "../../util/Util";
 
 /**
  * 共享场地服务
@@ -13,10 +15,8 @@ import ImageButton from "./ImageButton";
 export default class ImageCarousel extends React.PureComponent {
 
   state = {
-    bottom: undefined,
-    uris: undefined,
-    buttonObj: undefined,
-    title: undefined,
+    uris: [],
+    idx: 0,
   }
 
   renderItem = ({item}) => {
@@ -24,54 +24,94 @@ export default class ImageCarousel extends React.PureComponent {
   }
 
   onSnapToItem = (idx) => {
-    const {buttonObj} = this.state;
-    for (let i in buttonObj) {
-      if (buttonObj[i].checkIdx(idx)) {
-        return;
+    this.setState({
+      ...this.state,
+      title: this.getTitle(idx),
+      idx,
+    });
+  }
+
+
+  componentWillMount() {
+    let {dataSource} = this.props;
+    if (dataSource) {
+      if (Array.isArray(dataSource)) {
+        if (dataSource.length == 1) {
+          dataSource = dataSource[0];
+        } else {
+          const uris = [], btnDataSource = [];
+          let start = 0;
+          dataSource.map((data) => {
+            const {title, images} = data;
+            let end;
+            if (images && images.length > 0) {
+              end = start + images.length;
+              uris.push(...images);
+              btnDataSource.push({title, start, end});
+            } else {
+              end = start + 1;
+              uris.push(null);
+              btnDataSource.push({title, start, end, offset: 1});
+            }
+            start = end;
+          });
+
+          this.setState({
+            uris, btnDataSource, isArray: true,
+          });
+          return;
+        }
       }
+
+      // 非数组数据源
+      const {title, images = []} = dataSource;
+      this.setState({
+        title,
+        uris: images.length == 0 ? [null] : images,
+      });
+      this.triggerTitle(title)
     }
   }
 
-  componentWillMount() {
-    const {dataSource} = this.props;
-    if (dataSource) {
-      const uris = [];
-      let buttonObj, bottom;
-      if (Array.isArray(dataSource)) {
-        bottom = [], buttonObj = [];
-        let start = 0;
-        dataSource.map((data) => {
-          const {title, images} = data, end = start + images.length;
-
-          bottom.push(<ImageButton
-              active={start == 0} key={title} ref={ref => buttonObj.push(ref)} title={title} start={start} end={end}
-              onPress={({start}) => {
-                this.carousel.snapToItem(start);
-              }}
-              onActive={({title}) => {
-                this.setState({
-                  ...this.state,
-                  title,
-                });
-              }}/>);
-
-          uris.push(...images);
-
-          start = end;
-        });
-      }
-
-      this.setState({
-        uris, buttonObj, bottom
-      });
+  triggerTitle = (title) => {
+    if (this.props.triggerTitle && title != this.state.title) {
+      const trigger = setTimeout(() => {
+        this.props.triggerTitle(title);
+        clearTimeout(trigger);
+      }, 500);
     }
+  }
+
+  getTitle = (idx) => {
+    const {btnDataSource, title} = this.state;
+    if (btnDataSource) {
+      for (let i in btnDataSource) {
+        const {title, start, end} = btnDataSource[i];
+        if (Util.range(idx, start, end)) {
+          this.triggerTitle(title);
+          return title;
+        }
+      }
+    } else {
+      return title;
+    }
+  }
+
+  onButtonPress = ({title, start}) => {
+    this.triggerTitle(title);
+    this.carousel.snapToItem(start);
+    this.setState({
+      ...this.state,
+      title,
+      idx: start,
+    });
   }
 
   render() {
-    const {title, bottom, uris} = this.state;
+    const {title, uris, idx, btnDataSource, isArray} = this.state;
     return (
         <View style={styles.container}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.title}>{title || this.getTitle(idx)}</Text>
           <Carousel
               slideStyle={{alignSelf: 'center'}}
               ref={ref => this.carousel = ref}
@@ -92,9 +132,15 @@ export default class ImageCarousel extends React.PureComponent {
               }}
               layout='default'
 
+              firstItem={idx}
           />
           <View style={styles.bottom}>
-            {bottom}
+            {isArray ?
+                <ImageButtons dataSource={btnDataSource} idx={idx} onPress={this.onButtonPress}/> :
+                <Pagination dotsLength={uris.length} activeDotIndex={idx} dotColor={Colors7.white}
+                            dotStyle={styles.dot}
+                            inactiveDotColor={Colors7.gray}/>
+            }
           </View>
         </View>
     )
@@ -105,15 +151,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: Colors7.black,
     justifyContent: 'space-between',
   },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: BaseStyle.borderRadius
+  },
   title: {
-    ...TextStyle.subTitle,
+    ...TextStyle.title,
     color: Colors7.white,
     padding: 6,
-  },
-  carousel: {
   },
   bottom: {
     flexDirection: 'row',

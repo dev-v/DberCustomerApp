@@ -23,7 +23,7 @@ export default class ShareServiceDetail extends React.PureComponent {
   }
 
   componentWillMount() {
-    // const {service} = this.props.navigation.state.params;
+    const {service} = this.props;
     // this.state = {
     //   images: [1, 2, 3],
     //   service,
@@ -37,32 +37,6 @@ export default class ShareServiceDetail extends React.PureComponent {
 
   render() {
     const {images} = this.state;
-    return (
-        <ImageCarousel
-            dataSource={[{title: '测了哦', images}, {title: '测试1哦', images}, {
-              title: '测试2哦',
-              images
-            }, {
-              title: '测试3哦',
-              images
-            }, {
-              title: '测试4哦',
-              images
-            }, {
-              title: '测试5哦',
-              images
-            }, {
-              title: '测试6哦',
-              images
-            }, {
-              title: '测试7哦',
-              images
-            }, {
-              title: '测试8哦',
-              images
-            }, {
-              title: '测试9哦',
-              images
-            }]}/>)
+    return (<ImageCarousel dataSource={{title: this.props.service.serviceName, images}}/>)
   }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import {StatusBar, SafeAreaView} from 'react-native';
+import {StatusBar, SafeAreaView, ScrollView} from 'react-native';
 import Styles, {Colors7} from "../themes/Styles";
 
-export default class Container extends React.PureComponent {
+export default class ScrollContainer extends React.PureComponent {
   render() {
     const {style, children} = this.props;
     return (
@@ -13,7 +13,10 @@ export default class Container extends React.PureComponent {
               animated={false}
               backgroundColor={Colors7.statusBgColor}
           />
-          {children}
-        </SafeAreaView>);
+          <ScrollView style={Styles.fill}>
+            {children}
+          </ScrollView>
+        </SafeAreaView>)
+        ;
   }
 }

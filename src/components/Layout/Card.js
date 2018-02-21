@@ -1,21 +1,15 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
+import {DomUtil} from "../../util/Util";
 
 export default class Card extends React.PureComponent {
-  static wrapTextWithString = (content, style = TextStyle.base) => {
-    if (content && (typeof content == 'string')) {
-      return <Text style={style}>{content}</Text>;
-    }
-    return content;
-  };
-
   getTitle = () => {
     const {title, extra, onTitlePress} = this.props;
-    const extras = Card.wrapTextWithString(extra, TextStyle.extra);
+    const extras = DomUtil.wrapTextWithString(extra, TextStyle.extra);
     if (title || extras) {
       const view = <View style={styles.header}>
-        {Card.wrapTextWithString(title, TextStyle.subTitle)}
+        {DomUtil.wrapTextWithString(title, TextStyle.subTitle)}
         {extras && extras}
       </View>;
       return onTitlePress ? <TouchableOpacity onPress={onTitlePress}>
@@ -26,8 +20,8 @@ export default class Card extends React.PureComponent {
 
   render() {
     const {children, footer, style} = this.props;
-    const child = Card.wrapTextWithString(children);
-    const footers = Card.wrapTextWithString(footer);
+    const child = DomUtil.wrapTextWithString(children);
+    const footers = DomUtil.wrapTextWithString(footer);
     return <View
         style={{flex: 1, borderRadius: BaseStyle.borderRadius, padding: 5, backgroundColor: Colors7.white, ...style}}>
       {this.getTitle()}

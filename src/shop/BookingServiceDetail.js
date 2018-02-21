@@ -1,43 +1,88 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
-import {BaseStyle, TextStyle} from "../components/themes/Styles";
-import Styles from "../components/themes/Styles";
-import Card from "../components/Layout/Card";
-import FlexBetween from "../components/Layout/FlexBetween";
+import {Text, StyleSheet} from 'react-native';
+import {Colors7, TextStyle} from "../components/themes/Styles";
 import Container from "../components/Layout/Container";
+import FlexBetween from "../components/Layout/FlexBetween";
+import IconButton from "../components/Icon/IconButton";
+import Icon from "../components/Icon/Icon";
+import SiteSelect from "./SiteSelect";
+import Dates from "../components/Time/Dates";
+import Button from "../components/Button";
+import AccordingSelect from "../components/Layout/AccordingSelect";
 
-/**
- * 订场服务
- */
-export default class ShopServiceDetail extends React.PureComponent {
+let headerTitle = '瑜伽预订';
+export default class BookingServiceDetail extends React.PureComponent {
 
+  static setHeaderTitle(title) {
+    headerTitle = title;
+  }
+
+  static navigationOptions = () => ({headerTitle});
+
+  state = {
+    date: undefined,
+    site: undefined,
+    time: undefined,
+  }
 
   componentWillMount() {
-    const {service} = this.props.navigation.state.params;
-    this.state = {
-      sites: [{name: '场地1', price: '5', key: '1'}, {name: '场地2', price: '5', key: '2'}],
-      service,
-    }
+    // const service = this.props.state.params;
+    // this.state = {
+    //   images: [1, 2, 3],
+    //   service,
+    // }
   }
 
   renderItem = ({item}) => {
     const {name, price} = item;
-    return <FlexBetween>
-      <Text style={TextStyle.}>{name}</Text>
-    </FlexBetween>
+    return (<FlexBetween>
+      <Text style={TextStyle.base}>{name}<Text
+          style={styles.price}>{` (${price}元/小时)`}</Text></Text>
+      <IconButton name='schedule' source={Icon.source.MaterialIcons} text='预订' size={IconButton.size.normal}
+                  onPress={() => {
+                  }}/>
+    </FlexBetween>);
   }
+
+  onSiteSelect = (site) => {
+    this.setState({
+      ...this.state,
+      site,
+    });
+  }
+
+  onDateSelect = ({dateString}) => {
+    this.setState({
+      ...this.state,
+      date: dateString,
+    });
+  }
+
 
   render() {
-    const {service, sites} = this.state;
+    const {images, date, site, time} = this.state;
 
-    return <Container>
-      <Card title={service.name}>
-        <FlatList data={sites} renderItem={this.renderItem}/>
+    return (<Container>
+      <AccordingSelect label='选择日期' value={date} expand={true}>
+        <Dates onSelect={this.onDateSelect}/>
+      </AccordingSelect>
 
+      <AccordingSelect label='选择场地' value={site && site.name} type='modal'
+                       modalType='image'>
+        <SiteSelect service={{}} onSelect={this.onSiteSelect}/>
+      </AccordingSelect>
 
-      </Card>
-
-    </Container>
-
+      <AccordingSelect label='选择时段' value={time}>
+        <Dates onSelect={this.onDateSelect}/>
+      </AccordingSelect>
+      <Button>提交</Button>
+    </Container>)
   }
 }
+
+const styles = StyleSheet.create({
+  price: {
+    ...TextStyle.extra,
+    color: Colors7.volcano,
+  }
+});

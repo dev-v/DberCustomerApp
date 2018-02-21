@@ -7,7 +7,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-const Icons = {
+const IconSource = {
   MaterialCommunityIcons,
   SimpleLineIcons,
   Ionicons,
@@ -34,14 +34,20 @@ const Size = {
 }
 
 export default class Icon extends React.PureComponent {
-  static source = Icons;
+  static source = IconSource;
   static size = Size;
 
   render() {
-    const {name, size = Size.large, style, source = Icons.Ionicons} = this.props;
-    const Icon = (typeof source == 'string') ? Icons[source] : source;
+    const {name, size = Size.large, style, source = IconSource.Ionicons} = this.props;
+    const Icon = (typeof source == 'string') ? IconSource[source] : source;
     return <Icon style={{...size, ...style}} name={name}/>;
   }
 }
 
-export {Icons, Size};
+
+const Icons = {
+  arrowRight: <Icon name='ios-arrow-forward'/>,
+  arrowDown: <Icon name='ios-arrow-down'/>,
+}
+
+export {IconSource, Size, Icons};

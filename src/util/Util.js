@@ -1,5 +1,7 @@
+import React from 'react';
 import moment from 'moment';
-import {Platform, Dimensions} from 'react-native';
+import {Platform, Dimensions, Text} from 'react-native';
+import {TextStyle} from "../components/themes/Styles";
 
 const IS_IOS = Platform.OS === 'ios';
 const {width: viewportWidth, height: viewportHeight} = Dimensions.get('window');
@@ -18,6 +20,10 @@ class Time {
 
   static formatDate(time, format = Time.format_date) {
     return typeof time == 'string' ? time : time.format(format);
+  }
+
+  static parse(time) {
+    return moment(time);
   }
 
   /**
@@ -67,10 +73,22 @@ class Util {
     return false;
   }
 
+  static range = (val, start, end) => val >= start && val < end;
+
   static toStr(obj) {
     return this.isBlank(obj) ? obj : obj.toString();
   }
 }
 
+class DomUtil {
 
-export {Time, Util, IS_IOS};
+  static wrapTextWithString(content, style = TextStyle.base) {
+    if (content && (typeof content == 'string')) {
+      return <Text style={style}>{content}</Text>;
+    }
+    return content;
+  };
+}
+
+
+export {Time, Util, IS_IOS, DomUtil};

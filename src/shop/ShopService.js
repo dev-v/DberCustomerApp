@@ -11,6 +11,7 @@ import Hr from "../components/Hr";
 import Styles from "../components/themes/Styles";
 import ShareServiceDetail from "./ShareServiceDetail";
 import Modals, {ModalsStyle} from "../components/Modal/Modals";
+import BookingServiceDetail from "./BookingServiceDetail";
 
 class ShopService extends React.PureComponent {
 
@@ -35,7 +36,10 @@ class ShopService extends React.PureComponent {
     const snt = <Text style={TextStyle.base}>{serviceName}</Text>;
     return (<TouchableOpacity style={BaseStyle.flexBetween} onPress={() => {
       if (isShareSite) {
-        Modals.open(<ShareServiceDetail/>, ModalsStyle.image);
+        Modals.open(<ShareServiceDetail service={item}/>, ModalsStyle.image);
+      } else {
+        BookingServiceDetail.setHeaderTitle(`${serviceName}(${price}元/小时)`);
+        this.props.navigation.navigate('BookingServiceDetail', item)
       }
     }}>
       {isShareSite ? snt : <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -43,8 +47,8 @@ class ShopService extends React.PureComponent {
         <Text style={TextStyle.small}>{`(${price}元/小时)`}</Text>
       </View>}
       <View style={{flexDirection: 'row'}}>
-        {isShareSite && shareSiteLable}
-        {group == 1 && groupLable}
+        {isShareSite && shareSiteLabel}
+        {group == 1 && groupLabel}
       </View>
     </TouchableOpacity>);
   }
@@ -58,7 +62,12 @@ class ShopService extends React.PureComponent {
   }
 }
 
-const groupLable = <Label text='团体课程'/>;
-const shareSiteLable = <Label text='场地共享'/>;
+const groupLabel =
+    <Label text='团体课程'/>
+;
+const shareSiteLabel =
+    <Label text='场地共享'/>
+;
 
 export default withNavigation(ShopService);
+export {groupLabel};

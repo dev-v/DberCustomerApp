@@ -1,21 +1,17 @@
 import React from 'react';
 import {
   StyleSheet,
-  TouchableWithoutFeedback,
   View,
   StatusBar,
   Text,
   Alert,
-  ScrollView,
   PanResponder
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
-import Card from "../Layout/Card";
 import Hr from "../Hr";
 import Button from "../Button";
-import {IS_IOS, Util} from "../../util/Util";
-import SliderEntry from "../Image/SliderEntry";
+import {DomUtil, IS_IOS, Util} from "../../util/Util";
 
 let nav;
 let contents;
@@ -62,9 +58,20 @@ export default class Modals extends React.PureComponent {
     }])
   }
 
+  // static headerLeft = <IconButton iconStyle={{color:Colors7.white}} size={IconButton.size.large} name='chevron-left' source={IconSource.EvilIcons} onPress={() => {
+  //   nav.goBack();
+  // }}/>;
+
   static navigationOptions = ({navigation}) => {
     return {
       header: null,
+      // headerStyle: {
+      //   backgroundColor: Colors7.black
+      // },
+      // headerLeftStyle: {
+      //   color: Colors7.white
+      // },
+      // headerLeft: Modals.headerLeft,
     }
   }
 
@@ -105,9 +112,11 @@ export default class Modals extends React.PureComponent {
     return (
         <View style={styles.container} {...this.panResponder.panHandlers}>
           {sty.gradient}
-          <View style={[styles.innerContainer, sty == ModalsStyle.image && styles.imageInnerContainer]}>
-            {contents}
-          </View>
+          {sty == ModalsStyle.image ? contents :
+              <View style={styles.innerContainer}>
+                {contents}
+              </View>
+          }
         </View>
     );
   }
@@ -126,13 +135,6 @@ const styles = StyleSheet.create({
     margin: 16,
     backgroundColor: Colors7.white,
     borderRadius: BaseStyle.borderRadius,
-  },
-  imageInnerContainer: {
-    backgroundColor: 'transparent',
-    width: SliderEntry.sliderWidth,
-    height: SliderEntry.itemHeight,
-    margin: 0,
-    padding: 0,
   },
   title: {
     alignItems: 'center',
@@ -177,7 +179,7 @@ const getTitle = (title) => {
 }
 
 const getBody = (body) => {
-  return body && <View key='body' style={styles.body}>{Card.wrapTextWithString(body)}</View>
+  return body && <View key='body' style={styles.body}>{DomUtil.wrapTextWithString(body)}</View>
 }
 
 const getActions = (actions) => {

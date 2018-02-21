@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {MapView} from 'react-native-amap3d';
-import Icon, {Icons} from "../Icon/Icon";
+import Icon, {IconSource} from "../Icon/Icon";
 import IconButton from "../Icon/IconButton";
 import {Colors7} from "../themes/Styles";
 
@@ -140,7 +140,7 @@ export default class AMap extends React.PureComponent {
           <View style={styles.bottom}>
             <View style={styles.locationWrapStyle}>
               <IconButton size={IconButton.size.large} name='my-location' iconStyle={{paddingVertical: 5,}}
-                          source={Icons.MaterialIcons}
+                          source={IconSource.MaterialIcons}
                           onPress={this.toUserLocation}/>
             </View>
             <View style={{...childrenStyle, ...style}}>
@@ -160,7 +160,7 @@ const centerIcon = <Icon style={{
   color: Colors7.cyan,
   padding: 0,
   margin: 0,
-}} name='location-pin' source={Icons.Entypo}/>;
+}} name='location-pin' source={IconSource.Entypo}/>;
 
 const childrenStyle = {
   width: '100%',

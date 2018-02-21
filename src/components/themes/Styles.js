@@ -1,4 +1,6 @@
+import React from 'react';
 import {StyleSheet, Platform} from 'react-native';
+import Icon from "../Icon/Icon";
 
 
 // fontFamilly
@@ -11,7 +13,7 @@ import {StyleSheet, Platform} from 'react-native';
 const Colors7 = {
   black: '#1a1917',
   white: '#fff',
-  gray: '#888888',
+  gray: '#888',
   volcano: '#d4380d',
   orange: '#d46b08',
   gold: '#d48806',
@@ -37,8 +39,8 @@ const BaseStyle = {
   container: {
     flex: 1,
     backgroundColor: Colors7.white,
-    paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingBottom: 0.18,
+    paddingHorizontal: 3,
   },
   flexBetween: {
     flexDirection: 'row',
@@ -58,6 +60,7 @@ export default StyleSheet.create({
   container: BaseStyle.container,
   flexBetween: BaseStyle.flexBetween,
   center: BaseStyle.center,
+  fill: {flex: 1}
 });
 
 const NavStyle = StyleSheet.create({
@@ -104,6 +107,12 @@ const TextStyle = {
     fontFamily: BaseStyle.fontFamily,
     fontSize: 12,
     color: '#777',
+    paddingVertical: 1,
+  },
+  blue: {
+    fontSize: 16,
+    fontFamily: BaseStyle.fontFamily,
+    color: Colors7.blue,
     paddingVertical: 1,
   }
 };

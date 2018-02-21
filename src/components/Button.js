@@ -18,7 +18,7 @@ const Size = {
     wrap: {
       paddingVertical: 6,
       paddingHorizontal: 12,
-      marginLeft: 3,
+      marginHorizontal: 0.5,
     }
   },
   large: {
@@ -63,15 +63,11 @@ const Type = {
 }
 
 const disabledStyle = {
-  opacity: 0.8,
+  opacity: 0.5,
 }
 
 const enabledStyle = {
   opacity: 1,
-}
-
-const disabledTextStyle = {
-  color: '#ddd',
 }
 
 const lineStyle = {
@@ -109,7 +105,7 @@ export default class Button extends React.Component {
       <View style={{...flexStyle, ...(disabled ? disabledStyle : enabledStyle)}}>
         <LineGradient colors={colors}
                       style={lineStyle}>
-          <Text style={[textStyle, disabled && disabledTextStyle]}>{children}</Text>
+          <Text style={textStyle}>{children}</Text>
         </LineGradient></View>
     </TouchableOpacity>
   }

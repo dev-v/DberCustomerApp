@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import {TextStyle} from "../../components/themes/Styles";
 import IconButton from "../../components/Icon/IconButton";
-import {Icons} from "../../components/Icon/Icon";
+import {IconSource} from "../../components/Icon/Icon";
 import Modals from "../../components/Modal/Modals";
 
 const cardRule = (<View>
@@ -19,10 +19,10 @@ const cardRule = (<View>
 class GlobalCard extends React.PureComponent {
   render() {
     return (<View style={{flexDirection: 'row'}}>
-          <IconButton name='info' source={Icons.Feather} text={'说明'} onPress={() => {
+          <IconButton name='info' source={IconSource.Feather} text={'说明'} onPress={() => {
             Modals.alert(cardRule, '全城通卡使用说明');
           }}/>
-          <IconButton name='shopping-cart' size={IconButton.size.small} source={Icons.Feather} text='购买'
+          <IconButton name='shopping-cart' size={IconButton.size.small} source={IconSource.Feather} text='购买'
                       onPress={() => {
                         this.props.navigation.navigate('GlobalCardBuy');
                       }}/>

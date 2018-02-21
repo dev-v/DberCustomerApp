@@ -13,16 +13,17 @@ import IconButton from "../components/Icon/IconButton";
 import ShopDetail from "../shop/ShopDetail";
 import Modals from "../components/Modal/Modals";
 import ShareServiceDetail from "../shop/ShareServiceDetail";
+import BookingServiceDetail from "../shop/BookingServiceDetail";
 
 export default {
   Modals: {
     screen: Modals,
   },
-  // share: {
-  //   screen: ShareServiceDetail,
-  // },
-  Shop: {
+  BookingServiceDetail: {
     main: true,
+    screen: BookingServiceDetail,
+  },
+  Shop: {
     screen: Shop,
     navigationOptions: {
       title: '成都市',

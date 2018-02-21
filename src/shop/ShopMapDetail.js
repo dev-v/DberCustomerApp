@@ -3,11 +3,9 @@ import {View, Text, StyleSheet} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import ShopService from "./ShopService";
 import Card from "../components/Layout/Card";
-import Icon from "../components/Icon/Icon";
 import {Colors7, TextStyle} from "../components/themes/Styles";
 import {Time, Util} from "../util/Util";
-
-const extra = <Icon name='chevron-right' source={Icon.source.Entypo}/>;
+import {Icons} from "../components/Icon/Icon";
 
 class ShopMapDetail extends React.PureComponent {
 
@@ -40,7 +38,7 @@ class ShopMapDetail extends React.PureComponent {
     return (
         <Card title={title} style={{marginTop: 3}}
               extra={<View style={{alignItems: 'flex-end', justifyContent: 'space-between'}}>
-                {extra}
+                {Icons.arrowRight}
                 <Text style={{...TextStyle.small, color: Colors7.volcano}}>
                   {`${price}元/门店价`}
                 </Text>

@@ -3,26 +3,28 @@ import {StyleSheet, TouchableOpacity, View, Text, Image} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import PropTypes from 'prop-types';
 import {IS_IOS, Util} from "../../util/Util";
-import {BaseStyle, Colors7} from "../themes/Styles";
+import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
 
 const itemHorizontalMargin = Util.wp(2);
 export default class SliderEntry extends React.PureComponent {
 
   static itemHeight = Util.hp(36);
   static sliderWidth = Util.hp(100);
-  static itemWidth = Util.wp(82) + itemHorizontalMargin * 2;
+  static itemWidth = Util.wp(78) + itemHorizontalMargin * 2;
 
   static propTypes = {
-    uri: PropTypes.string.isRequired,
+    uri: PropTypes.string,
   };
 
   render() {
+    const {uri} = this.props;
     return (
         <View style={styles.slideInnerContainer}>
-          <FastImage resizeMode={FastImage.resizeMode.cover}
-                     borderRadius={BaseStyle.borderRadius}
-                     style={styles.image}
-                     source={{uri: this.props.uri}}/>
+          {uri ? <FastImage resizeMode={FastImage.resizeMode.cover}
+                            borderRadius={BaseStyle.borderRadius}
+                            style={styles.image}
+                            source={{uri: this.props.uri}}/> : <Text style={styles.noImage}>没有图片</Text>}
+
         </View>
     );
   }
@@ -32,18 +34,19 @@ const styles = StyleSheet.create({
   slideInnerContainer: {
     height: SliderEntry.itemHeight,
     width: SliderEntry.itemWidth,
-    paddingHorizontal: itemHorizontalMargin,
-    // backgroundColor: Colors7.white,
-    paddingBottom: 18 // needed for shadow
-  },
-  imageContainer: {
-    flex: 1,
-    marginBottom: IS_IOS ? 0 : -1, // Prevent a random Android rendering issue
+    paddingBottom: 18, // needed for shadow
+    marginBottom: IS_IOS ? 0 : -1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
-    // height: SliderEntry.itemHeight,
-    // width: SliderEntry.itemWidth,
-    flex: 1,
+    height: SliderEntry.itemHeight,
+    width: SliderEntry.itemWidth,
+    paddingHorizontal: itemHorizontalMargin,
+  },
+  noImage: {
+    ...TextStyle.title,
+    color: Colors7.white,
   },
   // slideInnerContainer: {
   //   height: SliderEntry.itemHeight,
