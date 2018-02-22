@@ -12,12 +12,16 @@ import GlobalCardBuy from "../user/Vip/GlobalCardBuy";
 import IconButton from "../components/Icon/IconButton";
 import ShopDetail from "../shop/ShopDetail";
 import Modals from "../components/Modal/Modals";
-import ShareServiceDetail from "../shop/ShareServiceDetail";
 import BookingServiceDetail from "../shop/BookingServiceDetail";
+import SliderExample from "../shop/SliderExample";
 
 export default {
   Modals: {
     screen: Modals,
+  },
+  SliderExample: {
+    screen: SliderExample,
+    userDrawer: true,
   },
   BookingServiceDetail: {
     main: true,

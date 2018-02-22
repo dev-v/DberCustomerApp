@@ -9,6 +9,8 @@ import SiteSelect from "./SiteSelect";
 import Dates from "../components/Time/Dates";
 import Button from "../components/Button";
 import AccordingSelect from "../components/Layout/AccordingSelect";
+import Slider from "../components/Layout/Slider";
+import SliderRange from "../components/Layout/SliderRange";
 
 let headerTitle = '瑜伽预订';
 export default class BookingServiceDetail extends React.PureComponent {
@@ -22,7 +24,7 @@ export default class BookingServiceDetail extends React.PureComponent {
   state = {
     date: undefined,
     site: undefined,
-    time: undefined,
+    time: {min: 10, max: 20},
   }
 
   componentWillMount() {
@@ -58,22 +60,28 @@ export default class BookingServiceDetail extends React.PureComponent {
     });
   }
 
+  onSliderChange = (value) => {
+    this.setState({
+      ...this.state,
+      time: value,
+    });
+  }
+
 
   render() {
     const {images, date, site, time} = this.state;
 
     return (<Container>
-      <AccordingSelect label='选择日期' value={date} expand={true}>
+      <AccordingSelect label='选择日期' value={date}>
         <Dates onSelect={this.onDateSelect}/>
       </AccordingSelect>
 
-      <AccordingSelect label='选择场地' value={site && site.name} type='modal'
-                       modalType='image'>
+      <AccordingSelect label='选择场地' value={site && site.name} type='modal'>
         <SiteSelect service={{}} onSelect={this.onSiteSelect}/>
       </AccordingSelect>
 
-      <AccordingSelect label='选择时段' value={time}>
-        <Dates onSelect={this.onDateSelect}/>
+      <AccordingSelect label='选择时段' value={`${time.min}-${time.max}`} expand={true}>
+        <SliderRange step={10} min={0} max={100} value={time} onChange={this.onSliderChange}/>
       </AccordingSelect>
       <Button>提交</Button>
     </Container>)

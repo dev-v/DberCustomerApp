@@ -1,9 +1,7 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import {Time} from "../../util/Util";
 import ArrowButton from "./ArrowButton";
-import Styles, {TextStyle} from "../themes/Styles";
 
 export default class Dates extends React.PureComponent {
 

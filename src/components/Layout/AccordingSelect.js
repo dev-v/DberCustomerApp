@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, Animated} from 'react-native';
 import FlexBetween from "./FlexBetween";
 import {TextStyle} from "../themes/Styles";
 import {Icons} from "../Icon/Icon";
@@ -9,6 +9,7 @@ import {ModalsStyle} from "../Modal/Modals";
 import Modals from "../Modal/Modals";
 import Styles from "../themes/Styles";
 import {DomUtil} from "../../util/Util";
+import {AnimatedConfig} from "../Config";
 
 const arrow = {
   slide: {
@@ -31,21 +32,32 @@ export default class AccordingSelect extends React.PureComponent {
     modalType: PropTypes.oneOf(['standard', 'image']),
   };
 
+  static defaultProps = {
+    type: 'slide',
+    modalType: 'image',
+    expand: false,
+  }
+
   componentWillMount() {
-    const {type = 'slide', expand = false} = this.props;
+    const {type, expand} = this.props;
     this.setState({
       isSlide: type == 'slide',
       expand,
+      flex: new Animated.Value(expand ? 1 : 0),
     });
   }
 
   onPress = () => {
-    const {isSlide, expand} = this.state;
+    const {isSlide, expand, flex} = this.state;
     if (isSlide) {
       this.setState({
         ...this.state,
         expand: !expand,
       });
+      Animated.timing(flex, {
+        ...AnimatedConfig.cubic,
+        toValue: expand ? 0 : 1,
+      }).start();
     } else {
       const {modalType = 'image'} = this.props;
       Modals.open(this.props.children, ModalsStyle[modalType])
@@ -53,10 +65,10 @@ export default class AccordingSelect extends React.PureComponent {
   }
 
   render() {
-    const {expand, isSlide} = this.state;
+    const {expand, isSlide, flex} = this.state;
     const {label, type = 'slide', value, children, showHr = true} = this.props;
 
-    return (<View style={{flex: expand ? 1 : 0}}>
+    return (<Animated.View style={{flex}}>
       <FlexBetween onPress={this.onPress}>
         <Text style={TextStyle.base}>{label}:</Text>
         <View style={Styles.flexBetween}>
@@ -66,10 +78,10 @@ export default class AccordingSelect extends React.PureComponent {
       </FlexBetween>
       {showHr && <Hr/>}
       {
-        expand && isSlide && <ScrollView style={{flex: 1}}>
+        isSlide && <ScrollView style={{flex: 1}}>
           {children}
         </ScrollView>
       }
-    </View>);
+    </Animated.View>);
   }
 }

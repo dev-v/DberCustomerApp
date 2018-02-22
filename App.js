@@ -1,7 +1,7 @@
 import React from 'react';
 import {BackAndroid} from 'react-native';
 import {DrawerNavigator, StackNavigator} from 'react-navigation';
-import './src/util/Config';
+import './src/components/Config';
 import IconButton from './src/components/Icon/IconButton';
 import DrawerContent from './src/nav/DrawerContent';
 import {NavStyle} from "./src/components/themes/Styles";

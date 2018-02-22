@@ -1,4 +1,5 @@
 import {LocaleConfig} from 'react-native-calendars';
+import {Easing} from "react-native";
 
 LocaleConfig.locales['zhCN'] = {
   monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二'],
@@ -8,3 +9,13 @@ LocaleConfig.locales['zhCN'] = {
 };
 
 LocaleConfig.defaultLocale = 'zhCN';
+
+
+const AnimatedConfig = {
+  cubic: {
+    duration: 200,
+    easing: Easing.cubic,
+  }
+}
+
+export {AnimatedConfig};
