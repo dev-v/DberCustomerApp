@@ -23,7 +23,10 @@ export default class SliderEntry extends React.PureComponent {
           {uri ? <FastImage resizeMode={FastImage.resizeMode.cover}
                             borderRadius={BaseStyle.borderRadius}
                             style={styles.image}
-                            source={{uri: this.props.uri}}/> : <Text style={styles.noImage}>没有图片</Text>}
+                            source={{uri: this.props.uri}}
+                            onProgress={e => console.warn(e.nativeEvent.loaded / e.nativeEvent.total)}
+                            onLoadEnd={() => console.warn('loaded')}
+          /> : <Text style={styles.noImage}>没有图片</Text>}
 
         </View>
     );

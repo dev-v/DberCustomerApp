@@ -23,7 +23,7 @@ export default class Label extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    borderColor: Colors7.blue,
+    borderColor: Colors7.gray,
     borderRadius: BaseStyle.borderRadius,
     borderWidth: 1,
     borderStyle: 'dotted',

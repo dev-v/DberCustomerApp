@@ -6,11 +6,13 @@ import FlexBetween from "../components/Layout/FlexBetween";
 import IconButton from "../components/Icon/IconButton";
 import Icon from "../components/Icon/Icon";
 import SiteSelect from "./SiteSelect";
-import Dates from "../components/Time/Dates";
+import Dates from "../components/Form/Dates";
 import Button from "../components/Button";
 import AccordingSelect from "../components/Layout/AccordingSelect";
-import Slider from "../components/Layout/Slider";
-import SliderRange from "../components/Layout/SliderRange";
+import Slider from "../components/Form/Slider";
+import SliderRange from "../components/Form/SliderRange";
+import {Time} from "../util/Util";
+import SliderRangeTime from "../components/Form/SliderRangeTime";
 
 let headerTitle = '瑜伽预订';
 export default class BookingServiceDetail extends React.PureComponent {
@@ -24,7 +26,7 @@ export default class BookingServiceDetail extends React.PureComponent {
   state = {
     date: undefined,
     site: undefined,
-    time: {min: 10, max: 20},
+    time: {min: 600, max: 610},
   }
 
   componentWillMount() {
@@ -81,16 +83,9 @@ export default class BookingServiceDetail extends React.PureComponent {
       </AccordingSelect>
 
       <AccordingSelect label='选择时段' value={`${time.min}-${time.max}`} expand={true}>
-        <SliderRange step={10} min={0} max={100} value={time} onChange={this.onSliderChange}/>
+        <SliderRangeTime onChange={this.onSliderChange}/>
       </AccordingSelect>
       <Button>提交</Button>
     </Container>)
   }
 }
-
-const styles = StyleSheet.create({
-  price: {
-    ...TextStyle.extra,
-    color: Colors7.volcano,
-  }
-});

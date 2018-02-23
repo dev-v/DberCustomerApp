@@ -6,7 +6,7 @@ import ReactNative, {
   View,
   SliderIOS,
 } from 'react-native';
-import Slider from "../components/Layout/Slider";
+import Slider from "../components/Form/Slider";
 import thumb from '../assets/img/thumb.png';
 import {Colors7} from "../components/themes/Styles";
 

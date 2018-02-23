@@ -26,9 +26,11 @@ export default {
   BookingServiceDetail: {
     main: true,
     screen: BookingServiceDetail,
+    userDrawer: true,
   },
   Shop: {
     screen: Shop,
+    userDrawer: true,
     navigationOptions: {
       title: '成都市',
       headerLeft: <IconButton size={IconButton.size.large} name='md-qr-scanner'/>,

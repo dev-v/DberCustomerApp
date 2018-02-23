@@ -6,11 +6,13 @@ import {
   StyleSheet,
   PanResponder,
   View,
-  ViewPropTypes
+  ViewPropTypes,
+  Text,
 } from "react-native";
 
 import PropTypes from 'prop-types';
-import {Colors7} from "../themes/Styles";
+import {Colors7, TextStyle} from "../themes/Styles";
+import {Util} from "../../util/Util";
 
 const TRACK_SIZE = 2;
 const THUMB_SIZE = 22;
@@ -45,6 +47,10 @@ export default class SliderRange extends React.PureComponent {
     value: PropTypes.shape({
       min: PropTypes.number, max: PropTypes.number,
     }),
+
+    markers: PropTypes.array,
+    markerFormat: PropTypes.func,
+    showMarkerLabel: PropTypes.bool,
 
     /**
      * If true the user won't be able to move the slider.
@@ -149,6 +155,8 @@ export default class SliderRange extends React.PureComponent {
     thumbColor: Colors7.white,
     thumbTouchSize: {width: 40, height: 40},
     debugTouchArea: false,
+    markerFormat: (val) => val,
+    showMarkerLabel: true,
   };
 
   state = {
@@ -172,31 +180,36 @@ export default class SliderRange extends React.PureComponent {
   };
 
   componentWillReceiveProps(nextProps) {
-    const {min, max} = nextProps.value;
-    this.state.value.setValue({x: min, y: max});
+    const {value, markers} = nextProps;
+    if (!Util.isSame(value, this.props.value)) {
+      const {min, max} = value;
+      this.state.value.setValue({x: min, y: max});
+    }
   };
 
   render() {
-    const {containerStyle, unSelectedStyle, touchStyle, other, selectedStyle, minThumbStyle, maxThumbStyle} = this.getConfig();
+    const {containerStyle, unSelectedStyle, touchStyle, other, selectedStyle, minThumbStyle, maxThumbStyle, markers} = this.getConfig();
 
     return (
         <View {...other} style={containerStyle} onLayout={this._measureContainer}>
           <View
               style={unSelectedStyle}
               renderToHardwareTextureAndroid={true}
-              onLayout={this._measureTrack}/>
+              onLayout={this._measureTrack}>
+          </View>
+          {markers}
           <Animated.View
               renderToHardwareTextureAndroid={true}
               style={selectedStyle}/>
           <Animated.View
               onLayout={this._measureThumb}
               renderToHardwareTextureAndroid={true}
-              style={minThumbStyle}
+              style={maxThumbStyle}
           />
           <Animated.View
               onLayout={this._measureThumb}
               renderToHardwareTextureAndroid={true}
-              style={maxThumbStyle}
+              style={minThumbStyle}
           />
           <View
               renderToHardwareTextureAndroid={true}
@@ -262,25 +275,47 @@ export default class SliderRange extends React.PureComponent {
         style,
         trackStyle,
         thumbStyle,
+        markers,
+        markerFormat,
+        showMarkerLabel,
         ...other
       } = this.props;
+
+      const {value, containerSize, thumbSize, allMeasured} = this.state;
 
       const touchOverflowStyle = this._getTouchOverflowStyle();
 
       const mainStyles = styles || defaultStyles;
 
-      const {value, containerSize, thumbSize, allMeasured} = this.state;
-
       const valueVisibleStyle = allMeasured ? undefined : {opacity: 0};
 
-      const x = value.x.interpolate({
+      const interpolateRange = {
         inputRange: [min, max],
         outputRange: [0, containerSize.width - thumbSize.width],
-      });
-      const y = value.y.interpolate({
-        inputRange: [min, max],
-        outputRange: [0, containerSize.width - thumbSize.width],
-      });
+      };
+
+      const x = value.x.interpolate(interpolateRange);
+      const y = value.y.interpolate(interpolateRange);
+
+      let markerViews;
+      if (markers) {
+        const m = new Animated.Value(0), res = m.interpolate(interpolateRange);
+        let left, width;
+        markerViews = markers.map((marker) => {
+          const {min, max} = marker;
+          m.setValue(min);
+          left = res.__getValue();
+          m.setValue(max);
+          width = res.__getValue() - left;
+          return (<View key={`${min}-${max}`} style={[mainStyles.markerContainer, {width, left}]}>
+            <View style={mainStyles.markerStyle}/>
+            {showMarkerLabel && <View style={mainStyles.markerLabel}>
+              <Text style={TextStyle.small}>{markerFormat(min)}</Text>
+              <Text style={TextStyle.small}>{markerFormat(max)}</Text>
+            </View>}
+          </View>);
+        });
+      }
 
       const selectedStyle = {
         position: 'absolute',
@@ -292,6 +327,7 @@ export default class SliderRange extends React.PureComponent {
 
       this.config = {
         mainStyles,
+        markers: markerViews,
         containerStyle: [mainStyles.container, style],
         unSelectedStyle: [{backgroundColor: unSelectedColor,}, mainStyles.track, trackStyle],
         touchStyle: [defaultStyles.touchArea, touchOverflowStyle],
@@ -467,7 +503,18 @@ const defaultStyles = StyleSheet.create({
   track: {
     height: TRACK_SIZE,
     borderRadius: TRACK_SIZE / 2,
+    justifyContent: 'center',
   },
+  markerContainer: {
+    position: 'absolute',
+    justifyContent: 'center'
+  },
+  markerStyle: {
+    width: '100%',
+    borderColor: Colors7.volcano,
+    borderWidth: TRACK_SIZE / 2,
+  },
+  markerLabel: {position: 'absolute', width: 33},
   thumb: {
     position: 'absolute',
     width: THUMB_SIZE,

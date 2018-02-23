@@ -1,6 +1,6 @@
 import React from "react";
 import {Text, View} from 'react-native';
-import {BaseStyle} from "./themes/Styles";
+import {BaseStyle} from "../themes/Styles";
 
 export default class Hr extends React.PureComponent {
 

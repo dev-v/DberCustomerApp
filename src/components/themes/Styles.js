@@ -39,7 +39,7 @@ const BaseStyle = {
   container: {
     flex: 1,
     backgroundColor: Colors7.white,
-    paddingBottom: 0.18,
+    paddingBottom: 0.3,
     paddingHorizontal: 3,
   },
   flexBetween: {

@@ -4,7 +4,7 @@ import {View, Text, ScrollView, Animated} from 'react-native';
 import FlexBetween from "./FlexBetween";
 import {TextStyle} from "../themes/Styles";
 import {Icons} from "../Icon/Icon";
-import Hr from "../Hr";
+import Hr from "./Hr";
 import {ModalsStyle} from "../Modal/Modals";
 import Modals from "../Modal/Modals";
 import Styles from "../themes/Styles";

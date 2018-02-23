@@ -7,7 +7,7 @@ import FlexBetween from "../components/Layout/FlexBetween";
 import {BaseStyle, Colors7, TextStyle} from "../components/themes/Styles";
 import IconButton from "../components/Icon/IconButton";
 import Icon from "../components/Icon/Icon";
-import Hr from "../components/Hr";
+import Hr from "../components/Layout/Hr";
 import Styles from "../components/themes/Styles";
 import ShareServiceDetail from "./ShareServiceDetail";
 import Modals, {ModalsStyle} from "../components/Modal/Modals";

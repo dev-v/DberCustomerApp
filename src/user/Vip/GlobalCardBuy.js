@@ -3,7 +3,7 @@ import {FlatList, Text, View} from 'react-native';
 import Card from "../../components/Layout/Card";
 import Button from "../../components/Button";
 import Styles, {BaseStyle, TextStyle} from "../../components/themes/Styles";
-import Hr from "../../components/Hr";
+import Hr from "../../components/Layout/Hr";
 
 class GlobalCardBuy extends React.PureComponent {
 
