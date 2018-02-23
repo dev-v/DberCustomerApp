@@ -12,8 +12,6 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* DberCustomerAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DberCustomerAppTests.m */; };
-		0FF211867D2040D89BE25A03 /* libFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAFEA69FDE4EB2A5CD79FE /* libFastImage.a */; };
-		12F3502CCA4B4F58B9F86F02 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BCE9ACD99FA439EB325A727 /* Octicons.ttf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -23,8 +21,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		1625BF2A2DC14613AE047C7D /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A0C10D83A2046F4B95E73E9 /* MaterialIcons.ttf */; };
-		2C29E2DABA264D14ACEF98D6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2E92BC0ED4045A29310185F /* Entypo.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -37,19 +33,22 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* DberCustomerAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DberCustomerAppTests.m */; };
-		405A51B99BFA4BE0A7F6B3F7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9735D0A554E64C2F8E09EDE2 /* FontAwesome.ttf */; };
-		4268861A688E3144792217BA /* libPods-DberCustomerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60884458E501C825CAFB9C9E /* libPods-DberCustomerApp.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		72BB346CBEA7474FA76520AE /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85703CF222EE4AF39DE39BF2 /* SimpleLineIcons.ttf */; };
-		784D7F8CD9514919A445951E /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CAAAA0CA48046C2A70B1E73 /* Foundation.ttf */; };
-		80590B44B4894779BEC7EBF5 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1C6C314DBB14327842A948B /* EvilIcons.ttf */; };
+		811DAFAAB58ED6D3C87F6000 /* libPods-DberCustomerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B261FE1B660B03ADC3032BAE /* libPods-DberCustomerApp.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		91EE463BA5E6477CB4B7B4EB /* libAMap3D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FF0607AAD84D6CAB893AE1 /* libAMap3D.a */; };
-		A52560508EF54244A0E18252 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F778B863297E401DB0458D70 /* Zocial.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		C1EE0FA3EDC44B0B8F223FB3 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A277AADB14043E782EC518B /* Feather.ttf */; };
-		CC19CFC68DF9411E9A6EC5E0 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40C4168F79C141B4A42D134D /* Ionicons.ttf */; };
-		E2B734DAF3594B30AC1211AB /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41DBFBDEB6B94034B00D5823 /* MaterialCommunityIcons.ttf */; };
+		B14369C51DFD46F3895CC380 /* libFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA42033915644AB88E8D87B /* libFastImage.a */; };
+		1FBF98E094764B13910C54BD /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9104BA7B1072403C9FB582B2 /* Entypo.ttf */; };
+		662A8C73752C48479E84B539 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4938FA02F37B45449729F7AE /* EvilIcons.ttf */; };
+		3DD46174DDF84C37925FA8E5 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D258B0E6CB24B0289EBEC58 /* Feather.ttf */; };
+		83A5D9CA325049789D576FD5 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3D5CEF3384E66AA045E1F /* FontAwesome.ttf */; };
+		2462F41F12E84249B5FD5150 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E586BE2FE944359A81E3A74 /* Foundation.ttf */; };
+		C8368D196265469D8A0ADEE5 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78BB63EEB78242EEA1795B61 /* Ionicons.ttf */; };
+		DAC09374DCF04973B62B3EC8 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D1F5F0F9E3543358960CB2E /* MaterialCommunityIcons.ttf */; };
+		3062B3C2A06A49D5AF7CD922 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60029C637E024207907E6CC8 /* MaterialIcons.ttf */; };
+		DD841EC23FF643ADA3B80072 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CFD5454EFC22434DA728853F /* Octicons.ttf */; };
+		576A7E26101146DC8C3E3840 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3321AE40424A4FE0917E8D3E /* SimpleLineIcons.ttf */; };
+		AF9846CDDFBE4499980D50BA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35C97E50CC864E838B83DCFD /* Zocial.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,7 +281,6 @@
 		00E356EE1AD99517003FC87E /* DberCustomerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DberCustomerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* DberCustomerAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DberCustomerAppTests.m; sourceTree = "<group>"; };
-		0A0C10D83A2046F4B95E73E9 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* DberCustomerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DberCustomerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,32 +291,29 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DberCustomerApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DberCustomerApp/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		1A277AADB14043E782EC518B /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* DberCustomerApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DberCustomerApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* DberCustomerApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DberCustomerApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		40C4168F79C141B4A42D134D /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		41DBFBDEB6B94034B00D5823 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		4BCE9ACD99FA439EB325A727 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
-		4E26671555E64629AD38C166 /* AMap3D.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AMap3D.xcodeproj; path = "../node_modules/react-native-amap3d/lib/ios/AMap3D.xcodeproj"; sourceTree = "<group>"; };
+		41273CD78F041FCC71015FB3 /* Pods-DberCustomerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DberCustomerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DberCustomerApp/Pods-DberCustomerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		5EC05598EBC63D6872D94992 /* Pods-DberCustomerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DberCustomerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DberCustomerApp/Pods-DberCustomerApp.debug.xcconfig"; sourceTree = "<group>"; };
-		60884458E501C825CAFB9C9E /* libPods-DberCustomerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DberCustomerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		7D1932B5912246FFA6D9779D /* FastImage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = FastImage.xcodeproj; path = "../node_modules/react-native-fast-image/ios/FastImage.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		85703CF222EE4AF39DE39BF2 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		8CAAAA0CA48046C2A70B1E73 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		9735D0A554E64C2F8E09EDE2 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		A2E92BC0ED4045A29310185F /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		A6FF0607AAD84D6CAB893AE1 /* libAMap3D.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = archive.ar; name = libAMap3D.a; path = libAMap3D.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		C1C6C314DBB14327842A948B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		D3AAFEA69FDE4EB2A5CD79FE /* libFastImage.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = archive.ar; name = libFastImage.a; path = libFastImage.a; sourceTree = "<group>"; };
-		EA162EC78B4B04740468ADFF /* Pods-DberCustomerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DberCustomerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DberCustomerApp/Pods-DberCustomerApp.release.xcconfig"; sourceTree = "<group>"; };
-		F778B863297E401DB0458D70 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		FA122126553A42D8B5F308F1 /* AMap3D.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AMap3D.xcodeproj; path = "../node_modules/react-native-amap3d/lib/ios/AMap3D.xcodeproj"; sourceTree = "<group>"; };
-		E0E8ADF21C08418F954783EE /* AMap3D.xcodeproj */ = {isa = PBXFileReference; name = "AMap3D.xcodeproj"; path = "../node_modules/react-native-amap3d/lib/ios/AMap3D.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		B261FE1B660B03ADC3032BAE /* libPods-DberCustomerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DberCustomerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CD265834B3C19BCFD657BE /* Pods-DberCustomerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DberCustomerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DberCustomerApp/Pods-DberCustomerApp.release.xcconfig"; sourceTree = "<group>"; };
+		0A13D89E150041DFA6771D50 /* FastImage.xcodeproj */ = {isa = PBXFileReference; name = "FastImage.xcodeproj"; path = "../node_modules/react-native-fast-image/ios/FastImage.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		CAA42033915644AB88E8D87B /* libFastImage.a */ = {isa = PBXFileReference; name = "libFastImage.a"; path = "libFastImage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		9104BA7B1072403C9FB582B2 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4938FA02F37B45449729F7AE /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2D258B0E6CB24B0289EBEC58 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		31A3D5CEF3384E66AA045E1F /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6E586BE2FE944359A81E3A74 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		78BB63EEB78242EEA1795B61 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4D1F5F0F9E3543358960CB2E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		60029C637E024207907E6CC8 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CFD5454EFC22434DA728853F /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3321AE40424A4FE0917E8D3E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		35C97E50CC864E838B83DCFD /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,9 +342,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				91EE463BA5E6477CB4B7B4EB /* libAMap3D.a in Frameworks */,
-				0FF211867D2040D89BE25A03 /* libFastImage.a in Frameworks */,
-				4268861A688E3144792217BA /* libPods-DberCustomerApp.a in Frameworks */,
+				811DAFAAB58ED6D3C87F6000 /* libPods-DberCustomerApp.a in Frameworks */,
+				B14369C51DFD46F3895CC380 /* libFastImage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,28 +484,18 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				60884458E501C825CAFB9C9E /* libPods-DberCustomerApp.a */,
+				B261FE1B660B03ADC3032BAE /* libPods-DberCustomerApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5672237712624052AF459533 /* Resources */ = {
+		35F240226EABA86B22CD3B66 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A2E92BC0ED4045A29310185F /* Entypo.ttf */,
-				C1C6C314DBB14327842A948B /* EvilIcons.ttf */,
-				1A277AADB14043E782EC518B /* Feather.ttf */,
-				9735D0A554E64C2F8E09EDE2 /* FontAwesome.ttf */,
-				8CAAAA0CA48046C2A70B1E73 /* Foundation.ttf */,
-				40C4168F79C141B4A42D134D /* Ionicons.ttf */,
-				41DBFBDEB6B94034B00D5823 /* MaterialCommunityIcons.ttf */,
-				0A0C10D83A2046F4B95E73E9 /* MaterialIcons.ttf */,
-				4BCE9ACD99FA439EB325A727 /* Octicons.ttf */,
-				85703CF222EE4AF39DE39BF2 /* SimpleLineIcons.ttf */,
-				F778B863297E401DB0458D70 /* Zocial.ttf */,
+				41273CD78F041FCC71015FB3 /* Pods-DberCustomerApp.debug.xcconfig */,
+				C7CD265834B3C19BCFD657BE /* Pods-DberCustomerApp.release.xcconfig */,
 			);
-			name = Resources;
-			path = "";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -521,15 +505,6 @@
 				5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		75118D62CA397C7836FE630D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5EC05598EBC63D6872D94992 /* Pods-DberCustomerApp.debug.xcconfig */,
-				EA162EC78B4B04740468ADFF /* Pods-DberCustomerApp.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
@@ -556,10 +531,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				4E26671555E64629AD38C166 /* AMap3D.xcodeproj */,
-				7D1932B5912246FFA6D9779D /* FastImage.xcodeproj */,
-				FA122126553A42D8B5F308F1 /* AMap3D.xcodeproj */,
-				E0E8ADF21C08418F954783EE /* AMap3D.xcodeproj */,
+				0A13D89E150041DFA6771D50 /* FastImage.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -581,8 +553,8 @@
 				00E356EF1AD99517003FC87E /* DberCustomerAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				5672237712624052AF459533 /* Resources */,
-				75118D62CA397C7836FE630D /* Pods */,
+				35F240226EABA86B22CD3B66 /* Pods */,
+				BB67045167864DE2B949A4EF /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -609,6 +581,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BB67045167864DE2B949A4EF /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				9104BA7B1072403C9FB582B2 /* Entypo.ttf */,
+				4938FA02F37B45449729F7AE /* EvilIcons.ttf */,
+				2D258B0E6CB24B0289EBEC58 /* Feather.ttf */,
+				31A3D5CEF3384E66AA045E1F /* FontAwesome.ttf */,
+				6E586BE2FE944359A81E3A74 /* Foundation.ttf */,
+				78BB63EEB78242EEA1795B61 /* Ionicons.ttf */,
+				4D1F5F0F9E3543358960CB2E /* MaterialCommunityIcons.ttf */,
+				60029C637E024207907E6CC8 /* MaterialIcons.ttf */,
+				CFD5454EFC22434DA728853F /* Octicons.ttf */,
+				3321AE40424A4FE0917E8D3E /* SimpleLineIcons.ttf */,
+				35C97E50CC864E838B83DCFD /* Zocial.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -634,13 +625,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DberCustomerApp" */;
 			buildPhases = (
-				2C4639593587D49A4A3096FA /* [CP] Check Pods Manifest.lock */,
+				CA8401E9768B8A9F5A1104F4 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				BDA33889CBCCB7919F721A4A /* [CP] Embed Pods Frameworks */,
-				8AD451FDE31023755F75772C /* [CP] Copy Pods Resources */,
+				FAA114DB711966604023E7EC /* [CP] Embed Pods Frameworks */,
+				494A5F380B020F3C52773100 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1002,17 +993,17 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				2C29E2DABA264D14ACEF98D6 /* Entypo.ttf in Resources */,
-				80590B44B4894779BEC7EBF5 /* EvilIcons.ttf in Resources */,
-				C1EE0FA3EDC44B0B8F223FB3 /* Feather.ttf in Resources */,
-				405A51B99BFA4BE0A7F6B3F7 /* FontAwesome.ttf in Resources */,
-				784D7F8CD9514919A445951E /* Foundation.ttf in Resources */,
-				CC19CFC68DF9411E9A6EC5E0 /* Ionicons.ttf in Resources */,
-				E2B734DAF3594B30AC1211AB /* MaterialCommunityIcons.ttf in Resources */,
-				1625BF2A2DC14613AE047C7D /* MaterialIcons.ttf in Resources */,
-				12F3502CCA4B4F58B9F86F02 /* Octicons.ttf in Resources */,
-				72BB346CBEA7474FA76520AE /* SimpleLineIcons.ttf in Resources */,
-				A52560508EF54244A0E18252 /* Zocial.ttf in Resources */,
+				1FBF98E094764B13910C54BD /* Entypo.ttf in Resources */,
+				662A8C73752C48479E84B539 /* EvilIcons.ttf in Resources */,
+				3DD46174DDF84C37925FA8E5 /* Feather.ttf in Resources */,
+				83A5D9CA325049789D576FD5 /* FontAwesome.ttf in Resources */,
+				2462F41F12E84249B5FD5150 /* Foundation.ttf in Resources */,
+				C8368D196265469D8A0ADEE5 /* Ionicons.ttf in Resources */,
+				DAC09374DCF04973B62B3EC8 /* MaterialCommunityIcons.ttf in Resources */,
+				3062B3C2A06A49D5AF7CD922 /* MaterialIcons.ttf in Resources */,
+				DD841EC23FF643ADA3B80072 /* Octicons.ttf in Resources */,
+				576A7E26101146DC8C3E3840 /* SimpleLineIcons.ttf in Resources */,
+				AF9846CDDFBE4499980D50BA /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,24 +1039,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		2C4639593587D49A4A3096FA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DberCustomerApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1080,7 +1053,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		8AD451FDE31023755F75772C /* [CP] Copy Pods Resources */ = {
+		494A5F380B020F3C52773100 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1122,7 +1095,25 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DberCustomerApp/Pods-DberCustomerApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BDA33889CBCCB7919F721A4A /* [CP] Embed Pods Frameworks */ = {
+		CA8401E9768B8A9F5A1104F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DberCustomerApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAA114DB711966604023E7EC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1210,27 +1201,23 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-				);
 				INFOPLIST_FILE = DberCustomerAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DberCustomerApp.app/DberCustomerApp";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1239,44 +1226,33 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-				);
 				INFOPLIST_FILE = DberCustomerAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DberCustomerApp.app/DberCustomerApp";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
+				);
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EC05598EBC63D6872D94992 /* Pods-DberCustomerApp.debug.xcconfig */;
+			baseConfigurationReference = 41273CD78F041FCC71015FB3 /* Pods-DberCustomerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-				);
 				INFOPLIST_FILE = DberCustomerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1286,22 +1262,19 @@
 				);
 				PRODUCT_NAME = DberCustomerApp;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
+				);
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA162EC78B4B04740468ADFF /* Pods-DberCustomerApp.release.xcconfig */;
+			baseConfigurationReference = C7CD265834B3C19BCFD657BE /* Pods-DberCustomerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-				);
 				INFOPLIST_FILE = DberCustomerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1311,6 +1284,10 @@
 				);
 				PRODUCT_NAME = DberCustomerApp;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
+				);
 			};
 			name = Release;
 		};
@@ -1326,20 +1303,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-				);
 				INFOPLIST_FILE = "DberCustomerApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1349,6 +1314,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1364,20 +1337,8 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-					"$(SRCROOT)/../node_modules/react-native-amap3d/lib/ios/AMap3D/**",
-				);
 				INFOPLIST_FILE = "DberCustomerApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1387,6 +1348,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
+				);
 			};
 			name = Release;
 		};
@@ -1403,16 +1372,15 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "DberCustomerApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.DberCustomerApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DberCustomerApp-tvOS.app/DberCustomerApp-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1429,16 +1397,15 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "DberCustomerApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.DberCustomerApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DberCustomerApp-tvOS.app/DberCustomerApp-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Release;
 		};
