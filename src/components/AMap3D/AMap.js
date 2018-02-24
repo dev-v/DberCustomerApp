@@ -115,7 +115,6 @@ export default class AMap extends React.PureComponent {
               zoomEnabled={true}
 
               locationEnabled
-              locationInterval={1000 * 5}
 
               maxZoomLevel={18}
               minZoomLevel={5}
