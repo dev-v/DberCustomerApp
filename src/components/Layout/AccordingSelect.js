@@ -68,7 +68,7 @@ export default class AccordingSelect extends React.PureComponent {
     const {expand, isSlide, flex} = this.state;
     const {label, type = 'slide', value, children, showHr = true} = this.props;
 
-    return (<View style={{flex: expand ? 1 : 0}}>
+    return (<Animated.View style={{flex}}>
       <FlexBetween onPress={this.onPress}>
         <Text style={TextStyle.subTitle}>{label}:</Text>
         <View style={Styles.flexBetween}>
@@ -78,10 +78,10 @@ export default class AccordingSelect extends React.PureComponent {
       </FlexBetween>
       {showHr && <Hr/>}
       {
-        isSlide && <Animated.ScrollView style={{flex, paddingHorizontal: 3,}}>
+        isSlide && expand && <ScrollView>
           {children}
-        </Animated.ScrollView>
+        </ScrollView>
       }
-    </View>);
+    </Animated.View>);
   }
 }

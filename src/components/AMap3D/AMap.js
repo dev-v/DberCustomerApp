@@ -55,7 +55,7 @@ export default class AMap extends React.PureComponent {
       rotation,
       zoomLevel,
       coordinate: {
-        longitude: longitude < 0 ? -longitude : longitude,
+        longitude,
         latitude,
       }
     }, 500);
@@ -115,7 +115,7 @@ export default class AMap extends React.PureComponent {
               zoomEnabled={true}
 
               locationEnabled
-              locationInterval={1000 * 30}
+              locationInterval={1000 * 5}
 
               maxZoomLevel={18}
               minZoomLevel={5}
