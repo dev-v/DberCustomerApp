@@ -18,10 +18,6 @@ class Time {
     return Time.today(hour, minute, second).add(1, 'd');
   }
 
-  static formatDate(time, format = Time.format_date) {
-    return typeof time == 'string' ? time : time.format(format);
-  }
-
   static parse(time) {
     return moment(time);
   }
@@ -32,6 +28,27 @@ class Time {
    */
   static formatTime(time, format = Time.format_time) {
     return typeof time == 'number' ? moment().hour(0).minute(time).format(format) : (time || moment()).format(format);
+  }
+
+  static formatDate(time, format = Time.format_date) {
+    return typeof time == 'string' ? time : time.format(format);
+  }
+
+  static fromMinute(minute = 0) {
+    return moment().hour(0).minute(minute);
+  }
+
+  static toMinute(time) {
+    const type = typeof time;
+    if (type == 'number') {
+      return time;
+    }
+    if (type == 'string') {
+      time = Time.parse(time);
+    } else {
+      time = moment(time);
+    }
+    return time.hour() * 60 + time.minute();
   }
 }
 
@@ -77,6 +94,14 @@ class Util {
 
   static toStr(obj) {
     return this.isBlank(obj) ? obj : obj.toString();
+  }
+
+  static additionalField(data, destField = 'key', srcField = 'text') {
+    if (data) {
+      data.map((d) => {
+        d[destField] = d[destField] || d[srcField];
+      })
+    }
   }
 }
 

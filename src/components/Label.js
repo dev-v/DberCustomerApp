@@ -1,8 +1,15 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {BaseStyle, Colors7, TextStyle} from "./themes/Styles";
+import PropTypes from 'prop-types';
+import Styles from "./themes/Styles";
 
 export default class Label extends React.PureComponent {
+
+  static propTypes = {
+    text: PropTypes.any,
+    disabled: PropTypes.bool,
+  }
 
   static getLabels(dataSource, field = 'name') {
     if (Array.isArray(dataSource)) {
@@ -15,7 +22,7 @@ export default class Label extends React.PureComponent {
 
   render() {
     return (<View style={styles.container}>
-      <Text style={styles.text}>{this.props.text}</Text>
+      <Text style={TextStyle.base}>{this.props.text}</Text>
     </View>);
   }
 }
@@ -26,14 +33,7 @@ const styles = StyleSheet.create({
     borderColor: Colors7.gray,
     borderRadius: BaseStyle.borderRadius,
     borderWidth: 1,
-    borderStyle: 'dotted',
-    paddingHorizontal: 5,
-    paddingVertical: 3,
-    marginHorizontal: 1.5,
+    paddingHorizontal: 6,
+    paddingVertical: 1,
   },
-  text: {
-    fontFamily: BaseStyle.fontFamily,
-    fontSize: 13,
-    color: BaseStyle.color,
-  }
 });

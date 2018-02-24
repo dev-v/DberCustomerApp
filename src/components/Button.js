@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 import LineGradient from 'react-native-linear-gradient';
 import {BaseStyle, Colors7} from "./themes/Styles";
+import Styles from "./themes/Styles";
 
 
 const textSize = StyleSheet.create({
@@ -62,14 +63,6 @@ const Type = {
   }
 }
 
-const disabledStyle = {
-  opacity: 0.5,
-}
-
-const enabledStyle = {
-  opacity: 1,
-}
-
 const lineStyle = {
   borderRadius: BaseStyle.borderRadius, alignItems: 'center',
 }
@@ -102,7 +95,7 @@ export default class Button extends React.Component {
     const {onPress, children, disabled} = this.props;
     const {colors, textStyle, flexStyle, lineStyle} = this.style;
     return <TouchableOpacity disabled={disabled} onPress={onPress}>
-      <View style={{...flexStyle, ...(disabled ? disabledStyle : enabledStyle)}}>
+      <View style={[...flexStyle, disabled && Styles.disabled]}>
         <LineGradient colors={colors}
                       style={lineStyle}>
           <Text style={textStyle}>{children}</Text>

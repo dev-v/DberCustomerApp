@@ -1,19 +1,13 @@
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
-import {Colors7, TextStyle} from "../components/themes/Styles";
+import {Radio} from 'antd-mobile';
 import Container from "../components/Layout/Container";
-import FlexBetween from "../components/Layout/FlexBetween";
-import IconButton from "../components/Icon/IconButton";
-import Icon from "../components/Icon/Icon";
-import SiteSelect from "./SiteSelect";
 import Dates from "../components/Form/Dates";
 import Button from "../components/Button";
 import AccordingSelect from "../components/Layout/AccordingSelect";
-import Slider from "../components/Form/Slider";
-import SliderRange from "../components/Form/SliderRange";
-import {Time} from "../util/Util";
 import SliderRangeTime from "../components/Form/SliderRangeTime";
+import RadioItems from "../components/Form/RadioItems";
 
+const RadioItem = Radio.RadioItem;
 let headerTitle = '瑜伽预订';
 export default class BookingServiceDetail extends React.PureComponent {
 
@@ -25,7 +19,11 @@ export default class BookingServiceDetail extends React.PureComponent {
 
   state = {
     date: undefined,
-    site: undefined,
+    sites: [
+      {key: '1', name: '场地1', price: 5, markers: [{min: 660, max: 720}]},
+      {key: '2', name: '场地1', price: 5, markers: [{min: 800, max: 820}]},
+      {key: '3', name: '场地1', price: 5, markers: [{min: 800, max: 990}, {min: 990, max: 1050}, {min: 1050, max: 1100}]},
+    ],
     time: {min: 600, max: 610},
   }
 
@@ -38,14 +36,10 @@ export default class BookingServiceDetail extends React.PureComponent {
   }
 
   renderItem = ({item}) => {
-    const {name, price} = item;
-    return (<FlexBetween>
-      <Text style={TextStyle.base}>{name}<Text
-          style={styles.price}>{` (${price}元/小时)`}</Text></Text>
-      <IconButton name='schedule' source={Icon.source.MaterialIcons} text='预订' size={IconButton.size.normal}
-                  onPress={() => {
-                  }}/>
-    </FlexBetween>);
+    const {name, price, markers} = item;
+    return (<RadioItem>
+      {name}
+    </RadioItem>);
   }
 
   onSiteSelect = (site) => {
@@ -62,30 +56,37 @@ export default class BookingServiceDetail extends React.PureComponent {
     });
   }
 
-  onSliderChange = (value) => {
+  onSliderChange = (value, formatValue) => {
     this.setState({
       ...this.state,
       time: value,
+      formatTime: formatValue,
     });
+  }
+
+  renderSite = (item, checked) => {
+    return <SliderRangeTime disabled={true} markers={item.markers}/>
   }
 
 
   render() {
-    const {images, date, site, time} = this.state;
+    const {images, date, site = {}, time, formatTime = time, sites} = this.state;
 
-    return (<Container>
-      <AccordingSelect label='选择日期' value={date}>
-        <Dates onSelect={this.onDateSelect}/>
-      </AccordingSelect>
+    return (
 
-      <AccordingSelect label='选择场地' value={site && site.name} type='modal'>
-        <SiteSelect service={{}} onSelect={this.onSiteSelect}/>
-      </AccordingSelect>
+        <Container>
+          <AccordingSelect label='选择日期' value={date}>
+            <Dates onSelect={this.onDateSelect}/>
+          </AccordingSelect>
 
-      <AccordingSelect label='选择时段' value={`${time.min}-${time.max}`} expand={true}>
-        <SliderRangeTime onChange={this.onSliderChange}/>
-      </AccordingSelect>
-      <Button>提交</Button>
-    </Container>)
+          <AccordingSelect expand={true} label='选择场地' value={site && site.name}>
+            <RadioItems data={sites} labelField='name' renderItem={this.renderSite} onChange={this.onSiteSelect}/>
+          </AccordingSelect>
+
+          <AccordingSelect label='选择时间' value={site && site.name}>
+            <SliderRangeTime markers={site.markers}/>
+          </AccordingSelect>
+          <Button>提交</Button>
+        </Container>)
   }
 }

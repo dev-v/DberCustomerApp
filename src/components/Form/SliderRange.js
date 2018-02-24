@@ -16,10 +16,10 @@ import {Util} from "../../util/Util";
 
 const TRACK_SIZE = 2;
 const THUMB_SIZE = 22;
+const LABEL_SIZE = 10;
 
 class Rect {
   constructor(x, y, width, height) {
-
     this.x = x;
     this.y = y;
     this.width = width;
@@ -177,39 +177,62 @@ export default class SliderRange extends React.PureComponent {
       onPanResponderRelease: this._handlePanResponderEnd,
       onPanResponderTerminate: this._handlePanResponderEnd,
     });
+
+
+    const {
+      min,
+      max,
+      selectedColor,
+      unSelectedColor,
+      thumbColor,
+      styles,
+      style,
+      trackStyle,
+      thumbStyle,
+      markers,
+      markerFormat,
+      showMarkerLabel,
+      ...other
+    } = this.props;
+
+
+    this.config = {
+      mainStyles: styles || defaultStyles,
+      other,
+    }
   };
 
   componentWillReceiveProps(nextProps) {
-    const {value, markers} = nextProps;
-    if (!Util.isSame(value, this.props.value)) {
+    const {value} = nextProps;
+    if (!Util.isSame(value, this._getCurrentValue())) {
       const {min, max} = value;
       this.state.value.setValue({x: min, y: max});
     }
   };
 
   render() {
-    const {containerStyle, unSelectedStyle, touchStyle, other, selectedStyle, minThumbStyle, maxThumbStyle, markers} = this.getConfig();
-
+    const {containerStyle, mainStyles, unSelectedStyle, touchStyle, other, selectedStyle, minThumbStyle, maxThumbStyle, markers} = this.getConfig();
+    const {disabled} = this.props;
     return (
-        <View {...other} style={containerStyle} onLayout={this._measureContainer}>
+        <View {...other} style={[containerStyle]} onLayout={this._measureContainer}>
           <View
               style={unSelectedStyle}
               renderToHardwareTextureAndroid={true}
               onLayout={this._measureTrack}>
           </View>
-          {markers}
           <Animated.View
               renderToHardwareTextureAndroid={true}
-              style={selectedStyle}/>
+              style={[selectedStyle, disabled && mainStyles.disabled]}/>
+          {this.getMarkerViews()}
           <Animated.View
               onLayout={this._measureThumb}
               renderToHardwareTextureAndroid={true}
-              style={maxThumbStyle}
+              style={[minThumbStyle, disabled && mainStyles.disabled]}
           />
           <Animated.View
               onLayout={this._measureThumb}
               renderToHardwareTextureAndroid={true}
-              style={minThumbStyle}
+              style={[maxThumbStyle, disabled && mainStyles.disabled]}
           />
           <View
               renderToHardwareTextureAndroid={true}
@@ -220,44 +243,47 @@ export default class SliderRange extends React.PureComponent {
     );
   };
 
-  _handleStartShouldSetPanResponder = (e: Object): boolean => {
-    return this._thumbHitTest(e);
-  };
+  cacheMarkers;
+  getMarkerViews = (force = false) => {
+    const {cacheMarkers, props, config} = this;
+    const {markers, markerFormat, showMarkerLabel} = props;
+    const {mainStyles, interpolateRange} = config;
+    if (interpolateRange && (!Util.isSame(markers, cacheMarkers) || force)) {
+      this.cacheMarkers = markers;
+      if (markers) {
+        const cacheLabels = {};
+        const m = new Animated.Value(0), res = m.interpolate(interpolateRange);
+        let left, width;
+        const markerViews = [];
+        markers.map((marker) => {
+          const {min, max} = marker;
+          m.setValue(min);
+          left = res.__getValue();
+          m.setValue(max);
+          width = res.__getValue() - left;
+          markerViews.push(<View key={`${min}-${max}`} style={[mainStyles.markerLineStyle, {left, width}]}/>);
+          cacheLabels[min] = left;
+          cacheLabels[max] = left + width - LABEL_SIZE * 2.5;
+        });
 
-  _handleMoveShouldSetPanResponder() {
-    return false;
-  };
-
-  _handlePanResponderGrant = () => {
-    this._previousLeft = this._getThumbLeft(this.currentTouch.touch);
-  };
-
-  _handlePanResponderMove = (e: Object, gestureState: Object) => {
-    if (this.props.disabled) {
-      return;
+        if (showMarkerLabel) {
+          let i = 0;
+          for (let val in cacheLabels) {
+            i++;
+            const left = cacheLabels[val];
+            markerViews.push(<Text key={`${val}`} style={[TextStyle.small, {
+              position: 'absolute',
+              fontSize: LABEL_SIZE,
+              left,
+              top: i % 2 == 0 ? 22 : 2,
+            }]}>{markerFormat(Number(val))}</Text>)
+          }
+        }
+        this.markers = markerViews;
+      }
     }
-
-    this._setCurrentValue(this._getValue(gestureState));
-    this._fireChangeEvent('onChange');
-  };
-
-  _handlePanResponderEnd = this._handlePanResponderMove;
-
-  _handlePanResponderRequestEnd() {
-    return false;
-  };
-
-  _measureContainer = (x: Object) => {
-    this._handleMeasure('containerSize', x);
-  };
-
-  _measureTrack = (x: Object) => {
-    this._handleMeasure('trackSize', x);
-  };
-
-  _measureThumb = (x: Object) => {
-    this._handleMeasure('thumbSize', x);
-  };
+    return this.markers;
+  }
 
   times = 0;
   config;
@@ -271,21 +297,15 @@ export default class SliderRange extends React.PureComponent {
         selectedColor,
         unSelectedColor,
         thumbColor,
-        styles,
         style,
         trackStyle,
         thumbStyle,
-        markers,
-        markerFormat,
-        showMarkerLabel,
-        ...other
       } = this.props;
+      const {mainStyles} = this.config;
 
       const {value, containerSize, thumbSize, allMeasured} = this.state;
 
       const touchOverflowStyle = this._getTouchOverflowStyle();
-
-      const mainStyles = styles || defaultStyles;
 
       const valueVisibleStyle = allMeasured ? undefined : {opacity: 0};
 
@@ -297,26 +317,6 @@ export default class SliderRange extends React.PureComponent {
       const x = value.x.interpolate(interpolateRange);
       const y = value.y.interpolate(interpolateRange);
 
-      let markerViews;
-      if (markers) {
-        const m = new Animated.Value(0), res = m.interpolate(interpolateRange);
-        let left, width;
-        markerViews = markers.map((marker) => {
-          const {min, max} = marker;
-          m.setValue(min);
-          left = res.__getValue();
-          m.setValue(max);
-          width = res.__getValue() - left;
-          return (<View key={`${min}-${max}`} style={[mainStyles.markerContainer, {width, left}]}>
-            <View style={mainStyles.markerStyle}/>
-            {showMarkerLabel && <View style={mainStyles.markerLabel}>
-              <Text style={TextStyle.small}>{markerFormat(min)}</Text>
-              <Text style={TextStyle.small}>{markerFormat(max)}</Text>
-            </View>}
-          </View>);
-        });
-      }
-
       const selectedStyle = {
         position: 'absolute',
         left: x,
@@ -325,9 +325,8 @@ export default class SliderRange extends React.PureComponent {
         ...valueVisibleStyle
       };
 
-      this.config = {
-        mainStyles,
-        markers: markerViews,
+      Object.assign(this.config, {
+        interpolateRange,
         containerStyle: [mainStyles.container, style],
         unSelectedStyle: [{backgroundColor: unSelectedColor,}, mainStyles.track, trackStyle],
         touchStyle: [defaultStyles.touchArea, touchOverflowStyle],
@@ -354,11 +353,50 @@ export default class SliderRange extends React.PureComponent {
             ...valueVisibleStyle
           }
         ],
-        other,
-      }
+      });
+
+      this.getMarkerViews(true);
     }
     return this.config;
   }
+
+  _handleStartShouldSetPanResponder = (e: Object): boolean => {
+    if (this.props.disabled) {
+      return;
+    }
+    return this._thumbHitTest(e);
+  };
+
+  _handleMoveShouldSetPanResponder() {
+    return false;
+  };
+
+  _handlePanResponderGrant = () => {
+    this._previousLeft = this._getThumbLeft(this.currentTouch.touch);
+  };
+
+  _handlePanResponderMove = (e: Object, gestureState: Object) => {
+    this._setCurrentValue(this._getValue(gestureState));
+    this._fireChangeEvent('onChange');
+  };
+
+  _handlePanResponderEnd = this._handlePanResponderMove;
+
+  _handlePanResponderRequestEnd() {
+    return false;
+  };
+
+  _measureContainer = (x: Object) => {
+    this._handleMeasure('containerSize', x);
+  };
+
+  _measureTrack = (x: Object) => {
+    this._handleMeasure('trackSize', x);
+  };
+
+  _measureThumb = (x: Object) => {
+    this._handleMeasure('thumbSize', x);
+  };
 
   _handleMeasure = (name: string, x: Object) => {
     const {width, height} = x.nativeEvent.layout;
@@ -505,16 +543,14 @@ const defaultStyles = StyleSheet.create({
     borderRadius: TRACK_SIZE / 2,
     justifyContent: 'center',
   },
-  markerContainer: {
+  markerLineStyle: {
     position: 'absolute',
-    justifyContent: 'center'
-  },
-  markerStyle: {
-    width: '100%',
     borderColor: Colors7.volcano,
     borderWidth: TRACK_SIZE / 2,
   },
-  markerLabel: {position: 'absolute', width: 33},
+  disabled: {
+    opacity: 0,
+  },
   thumb: {
     position: 'absolute',
     width: THUMB_SIZE,

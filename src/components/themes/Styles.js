@@ -60,7 +60,8 @@ export default StyleSheet.create({
   container: BaseStyle.container,
   flexBetween: BaseStyle.flexBetween,
   center: BaseStyle.center,
-  fill: {flex: 1}
+  fill: {flex: 1},
+  disabled: {opacity: 0.5},
 });
 
 const NavStyle = StyleSheet.create({

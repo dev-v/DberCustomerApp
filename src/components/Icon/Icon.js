@@ -40,7 +40,7 @@ export default class Icon extends React.PureComponent {
   render() {
     const {name, size = Size.large, style, source = IconSource.Ionicons} = this.props;
     const Icon = (typeof source == 'string') ? IconSource[source] : source;
-    return <Icon style={{...size, ...style}} name={name}/>;
+    return <Icon style={[size, style]} name={name}/>;
   }
 }
 
