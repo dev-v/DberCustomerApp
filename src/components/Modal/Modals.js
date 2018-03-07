@@ -10,7 +10,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
 import Hr from "../Layout/Hr";
-import Button from "../Button";
+import Button from "../Form/Button";
 import {DomUtil, IS_IOS, Util} from "../../util/Util";
 
 let nav;

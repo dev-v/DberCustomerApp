@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity,View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon, {IconSource} from "./Icon";
-import {BaseStyle, TextStyle} from "../themes/Styles";
+import {TextStyle} from "../themes/Styles";
 
 const Size = {
   large: {
@@ -30,11 +30,12 @@ export default class IconButton extends React.PureComponent {
   render() {
     const {disabled = false, onPress} = this.props;
     const {icon, text} = this;
-    return (<TouchableOpacity onPress={onPress} disabled={disabled}>
-      <View style={styles.view} >
-        {icon}
-        {text && text}
-      </View>
+    const view = <View style={styles.view}>
+      {icon}
+      {text && text}
+    </View>;
+    return ((disabled || !onPress) ? view : <TouchableOpacity onPress={onPress}>
+      {view}
     </TouchableOpacity>);
   }
 }

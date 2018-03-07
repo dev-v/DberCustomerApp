@@ -1,18 +1,22 @@
 import React from "react";
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {BaseStyle} from "../themes/Styles";
+import PropTypes from 'prop-types';
 
 export default class Hr extends React.PureComponent {
 
+  static propTypes = {
+    lineStyle: PropTypes.any,
+  }
+
   componentWillMount() {
     let {lineStyle, textStyle, style, text} = this.props;
-    style = {...styles.style, ...style};
-    lineStyle = {...styles.lineStyle, ...lineStyle};
+    style = [styles.style, style];
+    lineStyle = [styles.lineStyle, lineStyle];
     this.style = {style, lineStyle};
     if (text) {
-      textStyle = {...styles.textStyle, ...textStyle};
       const textTop = -textStyle.fontSize / 2 - 2;
-      this.style.textStyle = {...textStyle, top: textTop};
+      this.style.textStyle = [styles.textStyle, textStyle, {textTop}];
     }
   }
 
@@ -27,7 +31,7 @@ export default class Hr extends React.PureComponent {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   style: {
     flexDirection: 'row',
     paddingVertical: 6,
@@ -41,4 +45,8 @@ const styles = {
     paddingHorizontal: 20,
     color: '#889',
   }
-};
+});
+
+const HR = <Hr/>
+
+export {HR};

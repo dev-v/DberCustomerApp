@@ -29,7 +29,7 @@ export default class AMap extends React.PureComponent {
   onLocation = ({nativeEvent}) => {
     if (!userLocation) {
       userLocation = nativeEvent;
-      this.toUserLocation();
+      // this.toUserLocation();
     }
     userLocation = nativeEvent;
   }

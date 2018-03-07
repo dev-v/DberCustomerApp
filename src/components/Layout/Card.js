@@ -2,29 +2,23 @@ import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
 import {DomUtil} from "../../util/Util";
+import FlexBetween from "./FlexBetween";
+import {HR} from "./Hr";
 
 export default class Card extends React.PureComponent {
-  getTitle = () => {
-    const {title, extra, onTitlePress} = this.props;
-    const extras = DomUtil.wrapTextWithString(extra, TextStyle.extra);
-    if (title || extras) {
-      const view = <View style={styles.header}>
-        {DomUtil.wrapTextWithString(title, TextStyle.subTitle)}
-        {extras && extras}
-      </View>;
-      return onTitlePress ? <TouchableOpacity onPress={onTitlePress}>
-        {view}
-      </TouchableOpacity> : view
-    }
-  }
 
   render() {
-    const {children, footer, style} = this.props;
+    const {children, footer, style, title, extra, onTitlePress} = this.props;
     const child = DomUtil.wrapTextWithString(children);
     const footers = DomUtil.wrapTextWithString(footer);
-    return <View
-        style={{flex: 1, borderRadius: BaseStyle.borderRadius, padding: 5, backgroundColor: Colors7.white, ...style}}>
-      {this.getTitle()}
+    return <View style={[styles.container, style]}>
+      {
+        (title || extra) && <FlexBetween onPress={onTitlePress}>
+          {DomUtil.wrapTextWithString(title, TextStyle.subTitle)}
+          {DomUtil.wrapTextWithString(extra, TextStyle.extra)}
+        </FlexBetween>
+      }
+      {HR}
       {child && <View style={styles.body}>
         {child}
       </View>}
@@ -36,12 +30,16 @@ export default class Card extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    borderRadius: BaseStyle.borderRadius,
+    backgroundColor: Colors7.white,
+    marginVertical: 3,
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingBottom: 3,
-    paddingHorizontal: 6,
     borderBottomWidth: 1,
     borderBottomColor: BaseStyle.borderColor,
   },
@@ -49,7 +47,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   body: {
-    padding: 6,
+    flex: 1,
+    paddingHorizontal: 6,
   },
   footer: {
     paddingVertical: 6,

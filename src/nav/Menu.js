@@ -6,25 +6,28 @@ import Upgrade from "../user/Upgrade";
 import Bill from "../user/Bill";
 import Holiday from "../user/Holiday/Holiday";
 import BookingSite from "../user/BookingSite";
-import Setting from "../user/Setting/Setting";
+import Setting from "../user/Setting";
 import Vip from "../user/Vip/Vip";
 import GlobalCardBuy from "../user/Vip/GlobalCardBuy";
 import IconButton from "../components/Icon/IconButton";
-import ShopDetail from "../shop/ShopDetail";
+import ShopDetail from "../shop/detail/ShopDetail";
 import Modals from "../components/Modal/Modals";
-import BookingServiceDetail from "../shop/BookingServiceDetail";
-import SliderExample from "../shop/SliderExample";
+import BookingServiceDetail from "../shop/service/BookingServiceDetail";
+import SliderExample from "../components/SliderExample";
 
 export default {
   Modals: {
     screen: Modals,
+  },
+  ShopDetail: {
+    main: true,
+    screen: ShopDetail,
   },
   SliderExample: {
     screen: SliderExample,
     userDrawer: true,
   },
   BookingServiceDetail: {
-    main: true,
     screen: BookingServiceDetail,
     userDrawer: true,
   },
@@ -35,9 +38,6 @@ export default {
       title: '成都市',
       headerLeft: <IconButton size={IconButton.size.large} name='md-qr-scanner'/>,
     }
-  },
-  ShopDetail: {
-    screen: ShopDetail,
   },
   Setting: {
     screen: Setting,

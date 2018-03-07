@@ -4,7 +4,7 @@ import Carousel, {Pagination} from 'react-native-snap-carousel';
 import SliderEntry from "../Image/SliderEntry";
 import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
 import IconButton from "../Icon/IconButton";
-import Button from "../Button";
+import Button from "../Form/Button";
 import ImageButton from "./ImageButton";
 import ImageButtons from "./ImageButtons";
 import {Util} from "../../util/Util";

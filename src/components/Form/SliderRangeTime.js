@@ -6,7 +6,7 @@ import {DatePicker} from 'antd-mobile';
 import SliderRange from "./SliderRange";
 import {Time} from "../../util/Util";
 import FlexBetween from "../Layout/FlexBetween";
-import Label from "../Label";
+import Label from "../Layout/Label";
 
 
 const format = (value) => {

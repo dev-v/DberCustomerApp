@@ -3,11 +3,10 @@ import {StyleSheet, Text, View} from 'react-native';
 import {BaseStyle, Colors7, TextStyle} from "../components/themes/Styles";
 import AMap from "../components/AMap3D/AMap";
 import ShopMarker from "./ShopMarker";
-import ShopMapDetail from "./ShopMapDetail";
+import ShopMapDetail from "./detail/ShopMapDetail";
 import {CircleMarker} from "../components/AMap3D/Markers";
 import {Util} from "../util/Util";
 import Container from "../components/Layout/Container";
-
 
 //店铺收藏功能放shop模块
 const noService = 8;
@@ -17,7 +16,6 @@ export default class Shop extends React.PureComponent {
   state = {
     activeMarker: undefined,
     content: undefined,
-    activeShop: undefined,//激活店铺详情
   }
 
   closeBottom = () => {
@@ -27,8 +25,7 @@ export default class Shop extends React.PureComponent {
       this.setState({
         ...this.state,
         activeMarker: undefined,
-        activeShop: undefined,
-        activeData: undefined,
+        showShopDetail: false,
       });
     }
   }
@@ -40,7 +37,6 @@ export default class Shop extends React.PureComponent {
     // if (activeMarker && this.triggerMapMove) {
     //   activeMarker.setActive(false);
     //   this.state.activeMarker = undefined;
-    //   this.state.activeShop = undefined;
     //   this.state.activeData = undefined;
     //   this.triggerMapMove = false;
     // }
@@ -92,9 +88,9 @@ export default class Shop extends React.PureComponent {
     if (!Util.isSame(this.state.activeData, activeData)) {
       this.setState({
         ...this.state,
-        activeShop: <ShopMapDetail shop={activeData}/>,
         activeMarker,
         activeData,
+        showShopDetail:true,
       });
       // this.triggerMapMove = false;
     }
@@ -115,14 +111,14 @@ export default class Shop extends React.PureComponent {
   }
 
   render() {
-    const {markers, activeShop, content} = this.state;
+    const {markers, content, activeData, showShopDetail} = this.state;
     return (
         <Container style={styles.container}>
           <AMap config={{zoomLevel: 7, onPress: this.closeBottom}} onChange={this.onChange} markers={markers}>
             <View style={styles.content}>
               {content}
             </View>
-            {activeShop}
+            <ShopMapDetail shop={activeData} show={showShopDetail}/>
           </AMap>
         </Container>);
   }

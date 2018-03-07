@@ -1,10 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-import {Platform, Dimensions, Text} from 'react-native';
-import {TextStyle} from "../components/themes/Styles";
+import {Platform, Dimensions, Text, View} from 'react-native';
+import {Colors7, TextStyle} from "../components/themes/Styles";
+import Hr from "../components/Layout/Hr";
 
 const IS_IOS = Platform.OS === 'ios';
-const {width: viewportWidth, height: viewportHeight} = Dimensions.get('window');
+const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 class Time {
   static format_date = 'YYYY-MM-DD';
@@ -57,13 +58,11 @@ class Util {
   static isBlank = val => (val == 0 && typeof val == 'string') || (!val && val != 0);
 
   static wp(percentage) {
-    const value = (percentage * viewportWidth) / 100;
-    return Math.round(value);
+    return Math.round((percentage * WIDTH) / 100);
   }
 
   static hp(percentage) {
-    const value = (percentage * viewportHeight) / 100;
-    return Math.round(value);
+    return Math.round((percentage * HEIGHT) / 100);
   }
 
   static isSame = (s, t) => {
@@ -113,7 +112,10 @@ class DomUtil {
     }
     return content;
   };
+
+  static noMoreNode = <View><Hr/><Text
+      style={[TextStyle.base, {alignSelf: 'center', color: Colors7.gray}]}>没有更多</Text></View>;
 }
 
 
-export {Time, Util, IS_IOS, DomUtil};
+export {Time, Util, IS_IOS, DomUtil, WIDTH, HEIGHT};

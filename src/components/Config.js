@@ -1,5 +1,7 @@
 import {LocaleConfig} from 'react-native-calendars';
-import {Easing} from "react-native";
+import {Easing, AsyncStorage} from "react-native";
+import Storage from "react-native-storage";
+import StorageSync from '../util/StorageSync';
 
 LocaleConfig.locales['zhCN'] = {
   monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二'],
@@ -10,12 +12,23 @@ LocaleConfig.locales['zhCN'] = {
 
 LocaleConfig.defaultLocale = 'zhCN';
 
-
 const AnimatedConfig = {
   cubic: {
     duration: 200,
     easing: Easing.cubic,
   }
 }
+
+global.storage = new Storage({
+  size: 3000,
+
+  storageBackend: AsyncStorage,
+
+  defaultExpires: 1000 * 3600 * 24,
+
+  enableCache: true,
+
+  sync: StorageSync,
+});
 
 export {AnimatedConfig};

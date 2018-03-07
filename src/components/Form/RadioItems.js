@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import PropTypes from 'prop-types';
-import Hr from "../Layout/Hr";
 import FlexBetween from "../Layout/FlexBetween";
 import Radio from "./Radio";
 import {TextStyle} from "../themes/Styles";

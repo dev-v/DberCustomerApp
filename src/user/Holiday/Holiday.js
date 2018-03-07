@@ -1,6 +1,6 @@
 import React from 'react';
 import {withNavigation} from 'react-navigation';
-import Button from "../../components/Button";
+import Button from "../../components/Form/Button";
 import Calendars from "../../components/Form/Calendars";
 import Card from "../../components/Layout/Card";
 import IconButton from "../../components/Icon/IconButton";

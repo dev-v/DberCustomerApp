@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View, Text, Image} from 'react-native';
-import FastImage from 'react-native-fast-image';
+import {StyleSheet, View, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import {IS_IOS, Util} from "../../util/Util";
-import {BaseStyle, Colors7, TextStyle} from "../themes/Styles";
+import {Colors7, TextStyle} from "../themes/Styles";
+import ImageLoading from "./ImageLoading";
 
 const itemHorizontalMargin = Util.wp(2);
 export default class SliderEntry extends React.PureComponent {
@@ -20,14 +20,8 @@ export default class SliderEntry extends React.PureComponent {
     const {uri} = this.props;
     return (
         <View style={styles.slideInnerContainer}>
-          {uri ? <FastImage resizeMode={FastImage.resizeMode.cover}
-                            borderRadius={BaseStyle.borderRadius}
-                            style={styles.image}
-                            source={{uri: this.props.uri}}
-                            onProgress={e => console.warn(e.nativeEvent.loaded / e.nativeEvent.total)}
-                            onLoadEnd={() => console.warn('loaded')}
-          /> : <Text style={styles.noImage}>没有图片</Text>}
-
+          {uri ? <ImageLoading source={{uri: this.props.uri}} imgStyle={styles.image}/> :
+              <Text style={styles.noImage}>没有图片</Text>}
         </View>
     );
   }
