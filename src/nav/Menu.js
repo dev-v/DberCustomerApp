@@ -20,7 +20,6 @@ export default {
     screen: Modals,
   },
   ShopDetail: {
-    main: true,
     screen: ShopDetail,
   },
   SliderExample: {
@@ -32,6 +31,7 @@ export default {
     userDrawer: true,
   },
   Shop: {
+    main: true,
     screen: Shop,
     userDrawer: true,
     navigationOptions: {

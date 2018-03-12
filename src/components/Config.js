@@ -1,7 +1,9 @@
 import {LocaleConfig} from 'react-native-calendars';
 import {Easing, AsyncStorage} from "react-native";
 import Storage from "react-native-storage";
-import StorageSync from '../util/StorageSync';
+import ShopStorage from '../service/ShopStorage';
+import UploadStorage from '../service/UploadStorage';
+import PlatStorage from "../service/PlatStorage";
 
 LocaleConfig.locales['zhCN'] = {
   monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二'],
@@ -24,11 +26,17 @@ global.storage = new Storage({
 
   storageBackend: AsyncStorage,
 
-  defaultExpires: 1000 * 3600 * 24,
-
   enableCache: true,
 
-  sync: StorageSync,
+  sync: {
+    ...ShopStorage,
+    ...UploadStorage,
+    ...PlatStorage,
+  },
+
+  defaultExpires: 1000 * 60 //* 60 * 24,
 });
 
-export {AnimatedConfig};
+const protocol = 'http:';
+
+export {AnimatedConfig, protocol};

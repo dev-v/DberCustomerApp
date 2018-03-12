@@ -76,7 +76,6 @@ export default class AMap extends React.PureComponent {
      * }}
    */
   onStatusChange = ({nativeEvent}) => {
-    nativeEvent
     // this.setCoordinate(nativeEvent);
   }
   nativeEvent

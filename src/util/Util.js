@@ -102,6 +102,23 @@ class Util {
       })
     }
   }
+
+
+  static async runs(...promises) {
+    const rest = [];
+    let p;
+    for (let idx in promises) {
+      p = promises[idx];
+      if (p.then) {
+        await p.then((res) => {
+          rest.push(res);
+        });
+      } else {
+        rest.push(p)
+      }
+    }
+    return rest;
+  }
 }
 
 class DomUtil {

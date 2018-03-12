@@ -7,6 +7,7 @@ import ShopMapDetail from "./detail/ShopMapDetail";
 import {CircleMarker} from "../components/AMap3D/Markers";
 import {Util} from "../util/Util";
 import Container from "../components/Layout/Container";
+import ShopService from '../service/ShopService';
 
 //店铺收藏功能放shop模块
 const noService = 8;
@@ -60,39 +61,34 @@ export default class Shop extends React.PureComponent {
       return;
     }
     if (zoomLevel < staticsServie) {
-      // load-data
-      const count = 20;
-      this.setState({
-        ...this.state,
-        content: <Text style={TextStyle.base}>{`附近共找到${count}家店铺！`}</Text>,
-        markers: CircleMarker({latitude, longitude}, zoomLevel, count),
+      ShopService.count(location).then(({response: count}) => {
+        this.setState({
+          ...this.state,
+          content: <Text style={TextStyle.base}>{`附近共找到${count}家店铺！`}</Text>,
+          markers: CircleMarker({latitude, longitude}, zoomLevel, count + ''),
+        });
       });
     } else {
-      const dataSource = [{id: 1, lat: 30605382, lng: 104056427, name: '传奇健身（凯德天府店）'}, {
-        id: 2,
-        lat: 30537549,
-        lng: 104082147,
-        name: '奇迹健身（苏宁店）',
-        price: 5,
-        address: '我在这里非理发都是浪费手机费拉升房间打扫是否'
-      }], count = dataSource.length;
-      this.setState({
-        ...this.state,
-        content: <Text style={TextStyle.base}>{`附近共找到${count}家店铺！`}</Text>,
-        markers: this.generateMarkers(dataSource),
+      ShopService.shops(location).then(({response = []}) => {
+        this.setState({
+          ...this.state,
+          content: <Text style={TextStyle.base}>{`附近共找到${response.length}家店铺！`}</Text>,
+          markers: this.generateMarkers(response),
+        });
       });
     }
   }
 
   renderShopDetail = (activeData, activeMarker) => {
     if (!Util.isSame(this.state.activeData, activeData)) {
-      this.setState({
-        ...this.state,
-        activeMarker,
-        activeData,
-        showShopDetail:true,
+      storage.load({key: 'shop', id: activeData.id}).then(activeData => {
+        this.setState({
+          ...this.state,
+          activeMarker,
+          activeData,
+          showShopDetail: true,
+        });
       });
-      // this.triggerMapMove = false;
     }
   }
 

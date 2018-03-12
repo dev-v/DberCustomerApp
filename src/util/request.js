@@ -23,9 +23,7 @@ const checkStatus = (response) => {
 const request = (url, options) => {
   return fetch(url, options)
       .then(checkStatus)
-      .then(checkSystemStatus)
-      .finally(() => {
-      });
+      .then(checkSystemStatus);
 }
 
 class WrapService {
@@ -35,21 +33,21 @@ class WrapService {
     this.baseUrl = baseUrl;
   }
 
-  request = (path, options) => {
+  request(path, options) {
     return request(`${this.baseUrl}${path}`,
         //此处后续需研究 same-origin
         Object.assign({credentials: 'include'}, options));
   };
 
-  getUrl = (path) => {
+  getUrl(path) {
     return this.baseUrl + path;
   }
 
-  get = (path) => {
+  get(path) {
     return this.request(path);
   };
 
-  post = (path, data) => {
+  post(path, data) {
     let body = '';
     if (typeof data == 'object') {
       data = JSON.parse(JSON.stringify(data));
@@ -63,11 +61,9 @@ class WrapService {
             return;
           }
 
-          // body += `&${key}=${(typeof val == 'object')
-          //   ? JSON.stringify(val)
-          //   : val}`;
-
-          body += `&${key}=${encodeURI(val)}`;
+          body += `&${key}=${(typeof val == 'object')
+              ? JSON.stringify(val)
+              : encodeURI(val)}`;
         });
         body = body.substring(1);
       }
@@ -85,13 +81,13 @@ class WrapService {
   };
 }
 
-const shopPubService = new WrapService('http://localhost:8080/pub/');
+const platPubService = new WrapService('http://10.8.12.243:8200/pub/');
 
-const platPubService = new WrapService('http://localhost:8081/pub/');
+const uploadPubService = new WrapService('http://10.8.12.243:8201/pub/');
 
-const uploadPubService = new WrapService('http://localhost:8100/pub/');
+const shopPubService = new WrapService('http://10.8.12.243:8202/pub/');
 
-const customService = new WrapService('http://localhost:8082/');
+const customService = new WrapService('http://10.8.12.243:8203/');
 
 const selfService = customService;
 
