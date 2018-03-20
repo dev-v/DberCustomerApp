@@ -22,7 +22,6 @@ class Holiday extends React.Component {
   }
 
   submit = () => {
-    // console.warn(this.selectedDays)
   };
 
   render() {

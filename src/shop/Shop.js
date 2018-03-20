@@ -55,7 +55,7 @@ export default class Shop extends React.PureComponent {
     if (zoomLevel < noService) {
       this.setState({
         ...this.state,
-        content: <Text style={TextStyle.base}>没有找到服务，放大地图后试试！</Text>,
+        content: <Text style={TextStyle.base}>没有找到门店，放大地图后试试！</Text>,
         markers: undefined,
       });
       return;

@@ -95,7 +95,7 @@ class Util {
     return this.isBlank(obj) ? obj : obj.toString();
   }
 
-  static additionalField(data, destField = 'key', srcField = 'text') {
+  static additionalField(data, srcField = 'text', destField = 'key') {
     if (data) {
       data.map((d) => {
         d[destField] = d[destField] || d[srcField];

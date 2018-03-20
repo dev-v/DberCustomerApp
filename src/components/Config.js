@@ -34,7 +34,7 @@ global.storage = new Storage({
     ...PlatStorage,
   },
 
-  defaultExpires: 1000 * 60 //* 60 * 24,
+  defaultExpires: 1000 //* 60 * 60 * 24,
 });
 
 const protocol = 'http:';
